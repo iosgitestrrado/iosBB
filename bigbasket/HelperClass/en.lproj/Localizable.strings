@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  bigbasket
+
+  Created by Deepu S on 27/08/22.
+  
+*/
+
+"sendOtp" = "Send OTP";
+"Change" = "Change";
+"Wallet Case" = "Wallet Case";
+"Coupon" = "Coupon";
+"Delivery" = "Delivery";
+"Address" = "Address";
+"Checkout" = "Checkout";
+"Procced To Payment" = "Procced To Payment";
+"Search" = "Search";
+"Add" = "Add";
+"Sort" = "Sort";
+"what are you looking for?" = "what are you looking for?";
+"Logout" = "Logout";
+"Support" = "Support";
+"Referral" = "Referral";
+"Business Details" = "Business Details";
+"Coupons" = "Coupons";
+"Manage Address" = "Manage Address";
+"My wishlist" = "My wishlist";
+"Credits" = "Credits";
+"Wallet" = "Wallet";
+"Notification" = "Notification";
+"Profile" = "Profile";
+

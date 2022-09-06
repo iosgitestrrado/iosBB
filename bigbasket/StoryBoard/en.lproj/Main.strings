@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "2Ex-vQ-VMV"; */
+"2Ex-vQ-VMV.text" = "Don't have an account?";
+
+/* Class = "UIButton"; configuration.title = "Send OTP"; ObjectID = "MSC-hj-xUE"; */
+"MSC-hj-xUE.configuration.title" = "Send OTP";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MSC-hj-xUE"; */
+"MSC-hj-xUE.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "LOGIN"; ObjectID = "Nvf-jI-oJG"; */
+"Nvf-jI-oJG.text" = "LOGIN";
+
+/* Class = "UIButton"; configuration.title = "Skip"; ObjectID = "POR-gU-9lM"; */
+"POR-gU-9lM.configuration.title" = "Skip";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "POR-gU-9lM"; */
+"POR-gU-9lM.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Register"; ObjectID = "avv-3Q-eZo"; */
+"avv-3Q-eZo.configuration.title" = "Register";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "avv-3Q-eZo"; */
+"avv-3Q-eZo.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Log in with Email"; ObjectID = "eOp-bE-2Rb"; */
+"eOp-bE-2Rb.configuration.title" = "Log in with Email";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eOp-bE-2Rb"; */
+"eOp-bE-2Rb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Register"; ObjectID = "gyM-Xj-oLD"; */
+"gyM-Xj-oLD.text" = "Register";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "hzP-WT-dlg"; */
+"hzP-WT-dlg.text" = "Don't have an account?";
+
+/* Class = "UIButton"; configuration.title = "Register"; ObjectID = "kQT-an-Dgn"; */
+"kQT-an-Dgn.configuration.title" = "Register";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kQT-an-Dgn"; */
+"kQT-an-Dgn.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Send OTP"; ObjectID = "kRd-1U-6FW"; */
+"kRd-1U-6FW.configuration.title" = "Send OTP";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kRd-1U-6FW"; */
+"kRd-1U-6FW.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Forgot Password?"; ObjectID = "lrA-88-7pA"; */
+"lrA-88-7pA.configuration.title" = "Forgot Password?";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lrA-88-7pA"; */
+"lrA-88-7pA.normalTitle" = "Button";
