@@ -39,7 +39,7 @@ class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
             
         }
             else{
-                //                   self.view.
+                
             }
         }catch{}
     }

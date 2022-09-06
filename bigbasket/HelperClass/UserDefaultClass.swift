@@ -13,6 +13,7 @@ enum KeyValue:String {
     case userLanguage = "UserLanguage"
     case accessToken = "accesstoken"
     case userId = "UserId"
+    case isLogin = "IsLogin"
 }
 struct UserDefaultClass {
     

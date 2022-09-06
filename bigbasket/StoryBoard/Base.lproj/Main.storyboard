@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yw3-F9-fZd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6PS-Gy-379">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -259,12 +259,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4i-C4-KHR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="276"/>
+            <point key="canvasLocation" x="1504" y="275.61576354679806"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ndI-Ap-CmF">
             <objects>
-                <viewController id="6IL-ZJ-dC4" customClass="ViewController" customModule="bigbasket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="6IL-ZJ-dC4" customClass="ViewController" customModule="bigbasket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xbs-31-oyH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,7 +294,7 @@
                                                     <constraint firstAttribute="width" constant="65" id="qx7-lP-mNr"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTN-x3-NyZ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9526171209" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTN-x3-NyZ">
                                                 <rect key="frame" x="71" y="2.6666666666666856" width="268" height="55"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="QwB-hc-mme"/>
@@ -420,7 +420,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POR-gU-9lM">
-                                <rect key="frame" x="289" y="96" width="70" height="35"/>
+                                <rect key="frame" x="289" y="52" width="70" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="mS4-h3-gXM"/>
                                     <constraint firstAttribute="width" constant="70" id="nGE-ue-FHZ"/>
@@ -456,25 +456,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEd-7a-5Y2" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-288.80000000000001" y="225.36945812807883"/>
+            <point key="canvasLocation" x="653.60000000000002" y="225.36945812807883"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="abw-sj-jt0">
+        <!--Launch ScreenVC-->
+        <scene sceneID="EAA-tO-vb5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yw3-F9-fZd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r5b-St-As5">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6IL-ZJ-dC4" kind="relationship" relationship="rootViewController" id="nxM-ho-Pvm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fR4-HG-TZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="LaunchScreenVC" id="ohg-m4-iMG" customClass="LaunchScreenVC" customModule="bigbasket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e7G-h7-4N9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="xPN-9x-tHj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5s3-qa-2Fl"/>
+                        <color key="backgroundColor" name="SecondaryColor2"/>
+                        <constraints>
+                            <constraint firstItem="xPN-9x-tHj" firstAttribute="leading" secondItem="5s3-qa-2Fl" secondAttribute="leading" id="96v-ue-laH"/>
+                            <constraint firstItem="xPN-9x-tHj" firstAttribute="top" secondItem="5s3-qa-2Fl" secondAttribute="top" constant="-88" id="Hju-NH-SRG"/>
+                            <constraint firstItem="5s3-qa-2Fl" firstAttribute="bottom" secondItem="xPN-9x-tHj" secondAttribute="bottom" constant="-34" id="e8R-ww-PBD"/>
+                            <constraint firstItem="5s3-qa-2Fl" firstAttribute="trailing" secondItem="xPN-9x-tHj" secondAttribute="trailing" id="jQ6-Ik-D2M"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lTd-jt-89o"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVR-fG-IDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1342.0289855072465" y="238.39285714285714"/>
+            <point key="canvasLocation" x="-1274.4000000000001" y="230.54187192118226"/>
         </scene>
         <!--Verification OtpVC-->
         <scene sceneID="fbZ-hx-hH8">
@@ -652,7 +661,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhI-pO-7If" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1370" y="238"/>
+            <point key="canvasLocation" x="2311.1999999999998" y="237.93103448275863"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="uhD-4Q-05K">
@@ -950,13 +959,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dk4-RO-Dky" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2312" y="238"/>
+            <point key="canvasLocation" x="3253.5999999999999" y="237.93103448275863"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S6c-QB-2uN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6PS-Gy-379" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jn9-NI-YaB">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ohg-m4-iMG" kind="relationship" relationship="rootViewController" id="Unf-Ty-Ahr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5on-dd-wIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2216.8000000000002" y="230.54187192118226"/>
         </scene>
     </scenes>
     <resources>
         <image name="reg-bg" width="1080" height="1920"/>
+        <image name="splash" width="1080" height="1920"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor2">
+            <color red="0.0" green="0.4392156862745098" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryColor4">
             <color red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

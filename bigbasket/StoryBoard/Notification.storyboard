@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vOY-Oz-eUb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NotificationVC-->
+        <scene sceneID="3ev-Hf-2sC">
+            <objects>
+                <viewController storyboardIdentifier="NotificationVC" id="WXP-EC-7TX" customClass="NotificationVC" customModule="bigbasket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eTU-7X-ABx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FnH-Sf-CMr"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vIX-5i-tcR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1jr-ll-Wgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.1739130434785" y="194.86607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="krX-8P-znp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vOY-Oz-eUb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="noti-inact" selectedImage="noti-act" id="Qma-oc-PxN"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4fW-Fd-tYw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WXP-EC-7TX" kind="relationship" relationship="rootViewController" id="nu7-vK-taM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o23-8o-To8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842.02898550724649" y="194.86607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="noti-act" width="23.333333969116211" height="23.333333969116211"/>
+        <image name="noti-inact" width="70" height="70"/>
+    </resources>
+</document>

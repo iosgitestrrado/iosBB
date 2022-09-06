@@ -21,6 +21,7 @@ class VerificationOtpVC: UIViewController {
     var countryCode = ""
     var phonenumber = ""
     var isLoginPage = false
+    let userDefaultClass = UserDefaultClass()
     override func viewDidLoad() {
         super.viewDidLoad()
         backView.viewRoundCorners(with: .top)
@@ -88,6 +89,7 @@ class VerificationOtpVC: UIViewController {
                             if (responseModel.httpcode == 200)  {
                                 print("#AccessToken\(String(describing: responseModel.data?.access_token))")
                                 let userDefaultClass = UserDefaultClass()
+                                self.userDefaultClass.setUserDefaultString(value: "true", key: .isLogin)
                                 userDefaultClass.setUserDefaultString(value: responseModel.data?.access_token ?? "", key: .accessToken)
                                 self.goToHomePage()    }else{
                                     self.view.makeToast("\(responseModel.message ?? "")")
@@ -102,6 +104,7 @@ class VerificationOtpVC: UIViewController {
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try   jsonDecoder.decode(RegisterVerifyOtp_Base.self, from: mData)
                             if (responseModel.httpcode == 200)  {
+                              
                                 self.goToHomePage()    }else{
                                     self.view.makeToast("\(responseModel.message ?? "")")
                                 } }catch{

@@ -10,7 +10,7 @@ import CountryPickerView
 import Toast_Swift
 
 class ViewController: UIViewController, CountryPickerViewDelegate {
-   
+    
     @IBOutlet weak var CPV: CountryPickerView!
     @IBOutlet weak var btnForgotPassword: UIStackView!
     
@@ -26,28 +26,28 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         
         userDefaultClass.setUserDefaultString(value: "en", key: .userLanguage)
         CPV.delegate = self
         CPV.showCountryCodeInView = false
-       CPV.showPhoneCodeInView = true
+        CPV.showPhoneCodeInView = true
         CPV.flagImageView.isHidden = false
         
         CPV.showCountryNameInView = false
         self.CPV.setCountryByPhoneCode("+966")
         
-     //  UIView.appearance().semanticContentAttribute = "ar" == "ar" ? .forceRightToLeft :.forceLeftToRight
+        //  UIView.appearance().semanticContentAttribute = "ar" == "ar" ? .forceRightToLeft :.forceLeftToRight
         btnSendOtp.btnCorner()
         btnSendOtp.titleLabel?.font = UIFont(name: "POPPINS-REGULAR", size: 1)
         btnSendOtp.setTitle("sendOtp".localizableString(), for: .normal)
         viewBackView.viewRoundCorners(with: .top)
     }
     override func viewWillAppear(_ animated: Bool) {
-       
+        
     }
-
-//MARK: - Action
+    
+    //MARK: - Action
     
     @IBAction func clickForgotPassword(_ sender: Any) {
         goToForgotPassword()
@@ -68,10 +68,11 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
         
         userAccountMasterClass.loginEndPoint { mdata in
             do {
-    let jsonDecoder = JSONDecoder()
-    let responseModel = try jsonDecoder.decode(sendOtp_Base.self, from: mdata)
+                let jsonDecoder = JSONDecoder()
+                let responseModel = try jsonDecoder.decode(sendOtp_Base.self, from: mdata)
                 self.view.makeToast(responseModel.message)
                 if responseModel.httpcode == 200 {
+                   
                     self.goToOtpPage()
                 }
                 print("#Message: \(responseModel.message ?? "")" )
@@ -79,8 +80,7 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
                 
             }
         }
-            
-        }
+    }
     //MARK: - NavigationController
     
     func goToForgotPassword (){
@@ -118,14 +118,14 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didShow viewController: CountryPickerViewController) {
         
     }
-        
-    }
+    
+}
 
 func languageUpdate(languageSelected: Language){
     
     
     
-   // Bundle.setLanguage(languageSelected.keyValue)
+    // Bundle.setLanguage(languageSelected.keyValue)
     //self.SetLanguagesUI()
 }
 
