@@ -27,9 +27,9 @@ class LaunchScreenVC: UIViewController {
     //MARK: - NavigationController
     
     func goToHomePageVc (){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "HomeMain", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CustomeTabBarController") as! CustomeTabBarController
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "HomeMain", bundle:nil)
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CustomeTabBarController") as! CustomeTabBarController
+//        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     func goToLoginVc (){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
