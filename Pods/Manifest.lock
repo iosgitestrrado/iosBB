@@ -5,10 +5,13 @@ PODS:
   - CountryPickerView (3.3.0)
   - CropViewController (2.6.1)
   - IQKeyboardManagerSwift (6.5.10)
-  - NVActivityIndicatorView (4.8.0):
-    - NVActivityIndicatorView/Presenter (= 4.8.0)
-  - NVActivityIndicatorView/Presenter (4.8.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - QRCodeReader.swift (10.1.0)
+  - SDWebImage (5.12.6):
+    - SDWebImage/Core (= 5.12.6)
+  - SDWebImage/Core (5.12.6)
   - SwiftyJSON (4.3.0)
   - Toast-Swift (4.0.1)
   - ZKCarousel (1.1.1)
@@ -19,8 +22,9 @@ DEPENDENCIES:
   - CountryPickerView
   - CropViewController
   - IQKeyboardManagerSwift
-  - NVActivityIndicatorView (~> 4.7)
+  - NVActivityIndicatorView (~> 5.1.1)
   - QRCodeReader.swift (~> 10.0)
+  - SDWebImage (~> 5.12.3)
   - SwiftyJSON (~> 4.0)
   - Toast-Swift (~> 4.0.0)
   - ZKCarousel
@@ -34,6 +38,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
     - QRCodeReader.swift
+    - SDWebImage
     - SwiftyJSON
     - Toast-Swift
     - ZKCarousel
@@ -44,12 +49,13 @@ SPEC CHECKSUMS:
   CountryPickerView: 6322ada32a80b0cd721b0267282a5c24f406f263
   CropViewController: 58fb440f30dac788b129d2a1f24cffdcb102669c
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
-  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
+  SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   ZKCarousel: e54940a77f4b635e650ea0361608db836a776feb
 
-PODFILE CHECKSUM: 2270256f1a3344a863caf9e20e5cac50fb71675e
+PODFILE CHECKSUM: c89b98b9dd84ecd68a0ef43bac02906e11a7c6ec
 
 COCOAPODS: 1.11.3

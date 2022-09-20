@@ -8,12 +8,11 @@
 import Foundation
 import SwiftyJSON
 import CoreMedia
-struct UserAccountMasterClass{
+struct UserAccountMasterClass {
     let phoneNumber:String
     let contryCode:String
     
     func loginCredentialsVerification() throws->Bool  {
-        
         if(self.phoneNumber.isValidPhone()){
             if (!self.contryCode.isEmpty){
                 return true
@@ -21,15 +20,12 @@ struct UserAccountMasterClass{
                 throw ErrorMsg.invalidPassword
             }
         }else{
-    throw ErrorMsg.invalidPhoneNumber
+            throw ErrorMsg.invalidPhoneNumber
         }
     }
     
     func loginEndPoint(completion:@escaping (Data)->Void){
-        
-        
-let param = ["country_code":contryCode,
-"phone_number":phoneNumber]
+        let param = ["country_code":contryCode, "phone_number":phoneNumber]
         NetworkingHandler.Post(url: loginUrl, param: param) { mdata in
             completion(mdata)
         } failure: { Error in

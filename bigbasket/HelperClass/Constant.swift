@@ -3,11 +3,11 @@
 import Foundation
 import UIKit
 
-enum BaseUrl:String
+enum BaseUrl: String
 {
-case deve = "https://dev-bigbasket.estrradoweb.com/api/customer/"
-case live = "live"
-case testing = "test"
+    case deve = "https://dev-bigbasket.estrradoweb.com/api/customer/"
+    case live = "live"
+    case testing = "test"
 }
 
 let UrlType = "\(BaseUrl.deve.rawValue)";
@@ -19,13 +19,18 @@ let resendOtpUrl = "\(UrlType)register/verify/otp"
 let ResendOtpUrl = "\(UrlType)login/send/otp"
 let ForgotPasswordUrl = "\(UrlType)/login/forgot/password"
 let LoginVerifyOtpUrl = "\(UrlType)login/verify/otp"
+
+
+let CategorySubCatURL = "\(UrlType)cat-subcat"
+let ProfileURL = "\(UrlType)profile"
+
 enum fontName:String
 {
-case poppinsMedium = "POPPINS-MEDIUM"
-case Poppinsregular = "POPPINS-REGULAR"
-
+    case poppinsMedium = "POPPINS-MEDIUM"
+    case Poppinsregular = "POPPINS-REGULAR"
 }
 
+let defaultImage = UIImage(named: "noti")!
 
 //MARK: - Language
 
