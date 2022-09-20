@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class NetworkingHandler:NSObject {
-   // let inputString = "{\"User\":[{\"userlogin\":[\"\(self.emailAddress.text!)\", \"\(self.password.text!)\"]}]}"
+  
     
     static func Post(url:String,param:[String:Any],success: @escaping (Data)->Void,failure :@escaping (Error)->Void){
         print("##URL \(url)")

@@ -1,18 +1,106 @@
-//
-//  HomePageVC.swift
-//  bigbasket
-//
-//  Created by Deepu S on 05/09/22.
-//
+
 
 import UIKit
+import SDWebImage
 
 class HomePageVC: UIViewController {
-
+    
+    
+    @IBOutlet weak var BottomBannerCollectionView: UICollectionView!
+    @IBOutlet weak var bottomBannerBackView: UIView!
+    @IBOutlet weak var CenterBannerBackView: UIView!
+    @IBOutlet weak var CenterBannerCollectionView: UICollectionView!
+    @IBOutlet weak var ExploreProductsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var BeverageProductsCollectionView: UICollectionView!
+    @IBOutlet weak var BeverageProductsBackView: UIView!
+    @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
+    @IBOutlet weak var FeaturedProductsBackView: UIView!
+    @IBOutlet weak var GroceryCollectionView: UICollectionView!
+    @IBOutlet weak var GroceryBackView: UIView!
+    @IBOutlet weak var NewArrivalsCollectionView: UICollectionView!
+    @IBOutlet weak var newArrivalsBackView: UIView!
+    @IBOutlet weak var FruitAndVegsCollectionView: UICollectionView!
+    @IBOutlet weak var FruitAndVegsBackView: UIView!
+    @IBOutlet weak var RecommendedItemsCollectionView: UICollectionView!
+    @IBOutlet weak var RecommendedItemsBackView: UIView!
+    @IBOutlet weak var TreandingNowCollectionView: UICollectionView!
+    @IBOutlet weak var TreandingBackView: UIView!
+    @IBOutlet weak var BrandMustTryBackView: UIView!
+    @IBOutlet weak var BrandMustTryCollectionView: UICollectionView!
+    @IBOutlet weak var TopOfferBackView: UIView!
+    @IBOutlet weak var TopOfferPageControl: UIPageControl!
+    @IBOutlet weak var TopOfferBannerCollectionView: UICollectionView!
+    @IBOutlet weak var ShopByCategoryBackView: UIView!
+    @IBOutlet weak var HomeCategoryCollectionView: UICollectionView!
+    @IBOutlet weak var mainBannerCollectionView: UICollectionView!
+    @IBOutlet weak var mainBanerBackView: UIView!
+    @IBOutlet weak var searchBackView: UIView!
+    @IBOutlet weak var mainPageControl: UIPageControl!
+    @IBOutlet weak var mainBanerImageView: UIImageView!
+    
+    var MainBanner = [Main_banner]();
+    var CenterOfferBanner = [Center_offer_banner]();
+    var BottomOfferBanner = [Bottom_offer_banner]();
+    var HomeCategory = [Category]();
+    var TopOfferBanner = [Top_offer_banner]();
+    var BrandTopTry = [Brands]();
+    var TrendingProducts = [Trending_products]();
+    var FruitAndVegs = [Fruit_and_vegs]();
+    var NewArrivals = [New_arrivals]();
+    var Grocery  = [Grocery_subcat]();
+    var FeaturedProducts = [Featured_products]();
+    var BeverageProducts = [Beverage_products]();
+    var ExploreProducts = [Explore_products]();
+    
+    var MainBannerCurrentPage: Int = 0
+    var TopOfferCurrentPage: Int = 0
+    var timer = Timer()
+    var MainBannerCounter = 0
+    var TopOfferBannerCounter = 0
+    var BottomOfferBannerCounter = 0
+    var CenterOfferBannerCounter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductListViewController") as? ProductListViewController
+        //self.navigationController?.pushViewController(vc!, animated: true)
+        
+        mainBannerCollectionView.delegate = self
+        mainBannerCollectionView.dataSource = self
+        CenterBannerCollectionView.dataSource = self
+        CenterBannerCollectionView.delegate = self
+        TopOfferBannerCollectionView.delegate = self
+        TopOfferBannerCollectionView.dataSource = self
+        BottomBannerCollectionView.delegate = self
+        BottomBannerCollectionView.dataSource = self
+        BrandMustTryCollectionView.delegate = self
+        BrandMustTryCollectionView.dataSource = self
+        TreandingNowCollectionView.delegate = self
+        TreandingNowCollectionView.dataSource = self
+        RecommendedItemsCollectionView.dataSource = self
+        RecommendedItemsCollectionView.delegate = self
+        FruitAndVegsCollectionView.delegate = self
+        FruitAndVegsCollectionView.dataSource = self
+        NewArrivalsCollectionView.delegate = self
+        NewArrivalsCollectionView.dataSource = self
+        GroceryCollectionView.dataSource = self
+        GroceryCollectionView.delegate = self
+        FeaturedProductsCollectionView.delegate = self
+        FeaturedProductsCollectionView.dataSource = self
+        BeverageProductsCollectionView.dataSource = self
+        BeverageProductsCollectionView.delegate = self
+        ExploreProductsCollectionView.delegate = self
+        ExploreProductsCollectionView.dataSource = self
+        
+        mainBanerBackView.viewRoundCorners(with: .both,radius: 14)
+        TopOfferBackView.viewRoundCorners(with: .both, radius: 14)
+        CenterBannerBackView.viewRoundCorners(with: .both, radius: 14)
+        bottomBannerBackView.viewRoundCorners(with: .both, radius: 14)
+        ShopByCategoryBackView.viewRoundCorners(with: .both,radius: 14)
+        searchBackView.viewRoundCorners(with:.both,radius: 8)
+        CallEndPoint()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,7 +109,437 @@ class HomePageVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        timer.invalidate()
+      
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    //MARK: - Function
+    
+    @objc func changeImage(){
+        
+        
+        //MARK: - Main Banner change Image
+        if MainBannerCounter < MainBanner.count {
+            let index = IndexPath.init(item: MainBannerCounter, section: 0)
+            self.mainBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            mainPageControl.currentPage = MainBannerCounter
+            MainBannerCounter += 1
+        }
+        else{
+            MainBannerCounter = 0
+            let index = IndexPath.init(item: MainBannerCounter, section: 0)
+            self.mainBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+            mainPageControl.currentPage = MainBannerCounter
+            
+        }
+        //MARK: - Top Offer Banner change Image
+        if TopOfferBannerCounter < TopOfferBanner.count {
+            let index = IndexPath.init(item: TopOfferBannerCounter, section: 0)
+            self.TopOfferBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            TopOfferPageControl.currentPage = TopOfferBannerCounter
+            TopOfferBannerCounter += 1
+        }else{
+            TopOfferBannerCounter = 0
+            let index = IndexPath.init(item: TopOfferBannerCounter, section: 0)
+            self.TopOfferBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+            TopOfferPageControl.currentPage = TopOfferBannerCounter
+        }
+        //MARK: - Center Offer Banner change Image
+        if CenterOfferBannerCounter < CenterOfferBanner.count {
+            let index = IndexPath.init(item: CenterOfferBannerCounter, section: 0)
+            self.CenterBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            CenterOfferBannerCounter += 1
+        }
+        else{
+            CenterOfferBannerCounter = 0
+            let index = IndexPath.init(item: CenterOfferBannerCounter, section: 0)
+            self.CenterBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+            
+        }
+        
+        //MARK: - Bottom Offer Banner change Image
+        if BottomOfferBannerCounter < BottomOfferBanner.count {
+            let index = IndexPath.init(item: BottomOfferBannerCounter, section: 0)
+            self.BottomBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            BottomOfferBannerCounter += 1
+        }
+        else{
+            BottomOfferBannerCounter = 0
+            let index = IndexPath.init(item:  BottomOfferBannerCounter, section: 0)
+            self.BottomBannerCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+            
+        }
+        
+    }
+    
+    func CallEndPoint() {
+        self.StartSpiner()
+        let homePageMasterClass = HomePageMasterClass()
+        homePageMasterClass.HomePageEndPoint { mdata in
+            
+            do{
+                let jsonDecoder = JSONDecoder()
+                let responseModel = try jsonDecoder.decode(HomePage_Base.self, from: mdata)
+                DispatchQueue.main.async { [self] in
+                    self.StopSpiner()
+                if let banner = responseModel.data?.main_banner {
+                    self.MainBanner = banner
+                    self.mainBannerCollectionView.reloadData()
+                    
+                    
+                    if let category = responseModel.data?.category{
+                        self.HomeCategory = category
+                        self.HomeCategoryCollectionView.reloadData()
+                    }
+                    if let topOffer = responseModel.data?.top_offer_banner{
+                        self.TopOfferBanner = topOffer
+                        self.TopOfferBannerCollectionView.reloadData()
+                    }
+                    if let centerOfferBanner = responseModel.data?.center_offer_banner{
+                        self.CenterOfferBanner = centerOfferBanner
+                        self.CenterBannerCollectionView.reloadData()
+                    }
+                    if let bottomOfferBanner = responseModel.data?.bottom_offer_banner{
+                        self.BottomOfferBanner = bottomOfferBanner
+                        self.BottomBannerCollectionView.reloadData()
+                    }
+                    if let BrandMustTry = responseModel.data?.brands{
+                        self.BrandTopTry = BrandMustTry
+                        self.BrandMustTryCollectionView.reloadData()
+                    }
+                    if let trendingProducts = responseModel.data?.trending_products{
+                        self.TrendingProducts = trendingProducts
+                        self.TreandingNowCollectionView.reloadData()
+                    }
+                    if let trendingProducts = responseModel.data?.trending_products{
+                        self.TrendingProducts = trendingProducts
+                        self.RecommendedItemsCollectionView.reloadData()
+                    }
+                    if let fruitAndVegs = responseModel.data?.fruit_and_vegs{
+                        self.FruitAndVegs = fruitAndVegs
+                        self.FruitAndVegsCollectionView.reloadData()
+                    }
+                    if let newArrivals = responseModel.data?.new_arrivals{
+                        self.NewArrivals = newArrivals
+                        self.NewArrivalsCollectionView.reloadData()
+                    }
+                    if let grocery = responseModel.data?.grocery_subcat {
+                        self.Grocery = grocery
+                        self.GroceryCollectionView.reloadData()
+                        
+                    }
+                    if let featuredProducts = responseModel.data?.featured_products {
+                        self.FeaturedProducts = featuredProducts
+                        self.FeaturedProductsCollectionView.reloadData()
+                    }
+                    if let beverageProducts = responseModel.data?.beverage_products {
+                        self.BeverageProducts = beverageProducts
+                        self.BeverageProductsCollectionView.reloadData()
+                    }
+                    
+                    if let exploreProducts = responseModel.data?.explore_products {
+                        self.ExploreProducts = exploreProducts
+                        self.ExploreProductsCollectionView.reloadData()
+                    }
+                        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+                    }
+                    
+                }
+            }catch(let Error){
+                self.StopSpiner()
+                print(Error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == HomeCategoryCollectionView {
+            return HomeCategory.count
+            
+        }
+        else if collectionView == TopOfferBannerCollectionView {
+            return TopOfferBanner.count
+        }
+        else if collectionView == CenterBannerCollectionView {
+            return CenterOfferBanner.count
+        }
+        else if collectionView == BottomBannerCollectionView {
+            return BottomOfferBanner.count
+        }
+        
+        else if collectionView == BrandMustTryCollectionView {
+            return BrandTopTry.count
+        }
+        else if collectionView == TreandingNowCollectionView {
+            return TrendingProducts.count
+        }
+        else if collectionView == RecommendedItemsCollectionView {
+            return TrendingProducts.count
+        }
+        else if collectionView == FruitAndVegsCollectionView {
+            return FruitAndVegs.count
+        }
+        else if collectionView == NewArrivalsCollectionView {
+            return NewArrivals.count
+        }
+        else if collectionView == GroceryCollectionView {
+            return Grocery.count
+        }
+        else if collectionView == FeaturedProductsCollectionView {
+            return FeaturedProducts.count
+        }
+        else if collectionView == ExploreProductsCollectionView {
+            return ExploreProducts.count
+        }
+        
+        else{
+            return MainBanner.count
+        }
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        if collectionView == ExploreProductsCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreCollectionViewCell", for: indexPath) as! ExploreCollectionViewCell
+            if !(ExploreProducts[indexPath.row].image?.isEmpty ?? false) {
+                if let url = URL(string: ExploreProducts[indexPath.row].image?[0].image ?? ""){
+                    print("#URL\(url)")
+                    
+                    cell.ProductImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo") )
+                    
+                }}
+            cell.BackView.viewRoundCorners(with: .both, radius: 2)
+            cell.ProductNameLabel.text = ExploreProducts[indexPath.row].subcategory_name
+            return cell
+        }
+        
+        if collectionView == BeverageProductsCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeverageProductsCollectionViewCell", for: indexPath) as! BeverageProductsCollectionViewCell
+            if !(BeverageProducts[indexPath.row].image?.isEmpty ?? false) {
+                if let url = URL(string: BeverageProducts[indexPath.row].image?[0].image ?? ""){
+                    print("#URL\(url)")
+                    cell.PriceLabel.text = "\(BeverageProducts[indexPath.row].actual_price ?? "0") Sar"
+                    cell.ProductImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo") )
+                    
+                }}
+            cell.BackView.viewRoundCorners(with: .both, radius: 2)
+            cell.ProductNameLabel.text = BeverageProducts[indexPath.row].subcategory_name
+            return cell
+        }
+        
+        if collectionView == FeaturedProductsCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedProductsCollectionViewCell", for: indexPath) as! FeaturedProductsCollectionViewCell
+            if !(FeaturedProducts[indexPath.row].image?.isEmpty ?? false) {
+                if let url = URL(string: FeaturedProducts[indexPath.row].image?[0].image ?? ""){
+                    print("#URL\(url)")
+                    // cell.ProductImage.sd_setImage(with:url, completed: nil)
+                    cell.ProductImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo") )
+                }}
+            
+            cell.ProductNameLabel.text = FeaturedProducts[indexPath.row].subcategory_name
+            cell.PriceLabel.text = "\(FeaturedProducts[indexPath.row].actual_price ?? "0") Sar"
+            cell.BackView.viewRoundCorners(with: .both, radius: 2)
+            cell.BackView.AddShadow()
+            return cell
+        }
+        if collectionView == GroceryCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryCollectionViewCell", for: indexPath) as! GroceryCollectionViewCell
+            
+            if let url = URL(string: Grocery[indexPath.row].subcategory_image ?? ""){
+                print("#URL\(url)")
+                // cell.ProductImage.sd_setImage(with:url, completed: nil)
+                cell.ProductImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo") )
+            }
+            
+            cell.ProductName.text = Grocery[indexPath.row].subcategory_name
+            return cell
+        }
+        
+        if collectionView == NewArrivalsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewArrivalsCollectionViewCell", for: indexPath) as! NewArrivalsCollectionViewCell
+            if !(NewArrivals[indexPath.row].image?.isEmpty)! {
+                if let url = URL(string: NewArrivals[indexPath.row].image?[0].image ?? ""){
+                    print("#URL\(url)")
+                    cell.ProductImage.sd_setImage(with:url, completed: nil)
+                }}
+            cell.shortDescriptionLabel.text = NewArrivals[indexPath.row].subcategory_name ?? ""
+            let price = NewArrivals[indexPath.row].actual_price  == "NULL" ? "0.00" :NewArrivals[indexPath.row].actual_price ?? ""
+            cell.priceLabel.text = "\(String(describing: price)) SAR"
+            cell.qtyLabel.text = "1 Kg"
+            return cell
+        }
+        
+        if collectionView == FruitAndVegsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FruitAndVegsCollectionViewCell", for: indexPath) as! FruitAndVegsCollectionViewCell
+            
+            if let url = URL(string: FruitAndVegs[indexPath.row].subcategory_image ?? ""){
+                cell.ProductImage.sd_setImage(with:url, completed: nil)
+            }
+            cell.ProductNameLabel.text = FruitAndVegs[indexPath.row].subcategory_name
+            
+            return cell
+        }
+        if collectionView == RecommendedItemsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendedItemsCollectionViewCell", for: indexPath) as! RecommendedItemsCollectionViewCell
+            
+            if let url = URL(string: TrendingProducts[indexPath.row].image?[0].image ?? ""){
+                cell.TreandingProductImage.sd_setImage(with:url, completed: nil)
+            }
+            
+            cell.descriptionLabel.text = TrendingProducts[indexPath.row].short_description
+            cell.priceLabel.text = "\(TrendingProducts[indexPath.row].actual_price ?? "-") SAR"
+            cell.qtyLabel.text = ""
+            return cell
+        }
+        
+        if collectionView == TreandingNowCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TreandingNowCollectionViewCell", for: indexPath) as! TreandingNowCollectionViewCell
+            
+            if let url = URL(string: TrendingProducts[indexPath.row].image?[0].image ?? ""){
+                cell.TreandingProductImage.sd_setImage(with:url, completed: nil)
+            }
+            
+            cell.descriptionLabel.text = TrendingProducts[indexPath.row].short_description
+            cell.priceLabel.text = "\(TrendingProducts[indexPath.row].actual_price ?? "-") SAR"
+            cell.qtyLabel.text = "1 Kg"
+            return cell
+        }
+        
+        if collectionView == HomeCategoryCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCategoryCollectionViewCell", for: indexPath) as! HomeCategoryCollectionViewCell
+            cell.BackView.viewRoundCorners(with: .both, radius: 2)
+            cell.productName.text = HomeCategory[indexPath.row].category_name ?? ""
+            
+            if let url = URL(string: HomeCategory[indexPath.row].image ?? ""){
+                cell.productimages.sd_setImage(with:url, completed: nil)
+            }
+            return cell
+            
+        }
+        else if collectionView == TopOfferBannerCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopOfferBannerCollectionViewCell", for: indexPath) as! TopOfferBannerCollectionViewCell
+            
+            if let url = URL(string: MainBanner[indexPath.row].media ?? ""){
+                cell.topOfferBannerImage.sd_setImage(with:url, completed: nil)
+                
+            }
+            return cell
+        }
+        else if collectionView == BrandMustTryCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandMustTryCollectionViewCell", for: indexPath) as! BrandMustTryCollectionViewCell
+            
+            cell.backView.viewRoundCorners(with: .both, radius:2)
+            cell.backView.AddShadow()
+            
+            if let url = URL(string: BrandTopTry[indexPath.row].brand_image ?? ""){
+                cell.brandImage.sd_setImage(with:url, completed: nil)
+                
+            }
+            return cell
+        }
+        else if collectionView == CenterBannerCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CenterOfferBannerCollectionViewCell", for: indexPath) as! CenterOfferBannerCollectionViewCell
+            
+            if let url = URL(string: MainBanner[indexPath.row].media ?? ""){
+                cell.BannerImage.sd_setImage(with:url, completed: nil)
+            }
+            return cell
+        }
+        
+        else if collectionView == BottomBannerCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BottomOfferBannerCollectionViewCell", for: indexPath) as! BottomOfferBannerCollectionViewCell
+            
+            if let url = URL(string: MainBanner[indexPath.row].media ?? ""){
+                cell.BannerImage.sd_setImage(with:url, completed: nil)
+            }
+            return cell
+        }
+        
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomePageMainBannerCollectionViewCell", for: indexPath) as! HomePageMainBannerCollectionViewCell
+            
+            if let url = URL(string: MainBanner[indexPath.row].media ?? ""){
+                cell.bannerImage.sd_setImage(with:url, completed: nil)
+            }
+            return cell
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == HomeCategoryCollectionView {
+            
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/5, height:  self.view.frame.width / 5)
+        }
+        
+        else if collectionView == TopOfferBannerCollectionView {
+            return CGSize(width: self.view.frame.width , height: 230)
+        }
+        else if collectionView == BrandMustTryCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/3, height:  self.view.frame.width / 4)
+        }
+        else if collectionView == TreandingNowCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/2, height:  self.view.frame.width / 2)
+        }
+        else if collectionView == RecommendedItemsCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/2, height:  self.view.frame.width / 2)
+        }
+        else if collectionView == FruitAndVegsCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/3, height:  self.view.frame.width / 3)
+        }
+        else if collectionView == NewArrivalsCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/3, height:  self.view.frame.width / 2)
+        }
+        else if collectionView == FeaturedProductsCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/2, height:  self.view.frame.width / 2)
+        }
+        else if collectionView == BeverageProductsCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/2, height:  self.view.frame.width / 2)
+        }
+        else if collectionView == ExploreProductsCollectionView {
+            let collectionViewWidth = collectionView.bounds.width
+            return CGSize(width:collectionViewWidth/2, height:  self.view.frame.width / 2.5)
+        }
+        else if collectionView == BottomBannerCollectionView{
+            return CGSize(width: self.view.frame.width , height: 275)
+        }
+        else if collectionView == CenterBannerCollectionView {
+            return CGSize(width: self.view.frame.width , height: 275)
+        }
+        else{
+            return CGSize(width: self.view.frame.width , height: 275)
+        }
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    
+    // Cell Margin
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    }
+    
+    //MARK: - Did Select
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("#Did Select")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductListViewController") as? ProductListViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 }

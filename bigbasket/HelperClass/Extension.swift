@@ -74,8 +74,16 @@ extension UIColor{
 }
 
 extension UIView {
+    
+    func AddShadow(){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 3, height: 3)
+        self.layer.shadowOpacity = 0.7
+        self.layer.shadowRadius = 4.0
+        self.layer.masksToBounds = true
+    }
 
-    func viewRoundCorners(with type: RoundType, radius: CGFloat = 14.0) {
+    func viewRoundCorners(with type: RoundType, radius: CGFloat) {
             var corners: UIRectCorner
             switch type {
             case .top:
@@ -102,5 +110,27 @@ extension String{
         let path =  Bundle.main.path(forResource: loc, ofType: "lproj")
         let bundle = Bundle(path: path!)
         return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "                      ", comment: "")
+    }
+}
+
+fileprivate var aView : UIView?
+extension UIViewController {
+    func StartSpiner(){
+         aView = UIView(frame:self.view.bounds)
+        aView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView(style: .whiteLarge)
+        ai.center = aView!.center
+        ai.startAnimating()
+        aView!.addSubview(ai)
+        self.view.addSubview(aView!)
+        
+    }
+    func StopSpiner(){
+        aView?.removeFromSuperview()
+        aView = nil
+    }
+    
+    func isHiddenNavigationBar(_ bool:Bool){
+        self.navigationController?.navigationBar.isHidden = bool
     }
 }

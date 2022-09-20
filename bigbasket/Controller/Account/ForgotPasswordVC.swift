@@ -11,7 +11,7 @@ import Toast_Swift
 
 class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     
-
+    
     @IBOutlet weak var countryPickerView: CountryPickerView!
     
     @IBOutlet weak var textPhoneNumber: UITextField!
@@ -19,15 +19,15 @@ class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        countryPickerView.delegate = self
-                countryPickerView.showCountryCodeInView = false
-               countryPickerView.showPhoneCodeInView = true
-                countryPickerView.flagImageView.isHidden = false
         
-                countryPickerView.showCountryNameInView = false
+        countryPickerView.delegate = self
+        countryPickerView.showCountryCodeInView = false
+        countryPickerView.showPhoneCodeInView = true
+        countryPickerView.flagImageView.isHidden = false
+        countryPickerView.showCountryNameInView = false
         countryPickerView.setCountryByPhoneCode("+966")
     }
+    
     
     //MARK: - Action
     
@@ -35,16 +35,14 @@ class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     @IBAction func clickSendOtp(_ sender: Any) {
         let forgotPasswordMasterClass = ForgotPasswordMasterClass(phoneNumber: textPhoneNumber.text!, contryCode: selectedContryCode)
         do {
-        if try forgotPasswordMasterClass.loginCredentialsVerification(){
-            
-        }
-            else{
+            if try forgotPasswordMasterClass.loginCredentialsVerification(){
                 
             }
+            else{}
         }catch{}
     }
     
-
+    
     //MARK:  - Delegate
     
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
@@ -60,5 +58,5 @@ class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didShow viewController: CountryPickerViewController) {
         
     }
-
+    
 }

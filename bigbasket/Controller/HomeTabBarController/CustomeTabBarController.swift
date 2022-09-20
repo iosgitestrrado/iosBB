@@ -1,9 +1,3 @@
-//
-//  CustomeTabBarController.swift
-//  bigbasket
-//
-//  Created by Deepu S on 29/08/22.
-//
 
 import UIKit
 

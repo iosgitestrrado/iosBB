@@ -19,6 +19,10 @@ let resendOtpUrl = "\(UrlType)register/verify/otp"
 let ResendOtpUrl = "\(UrlType)login/send/otp"
 let ForgotPasswordUrl = "\(UrlType)/login/forgot/password"
 let LoginVerifyOtpUrl = "\(UrlType)login/verify/otp"
+
+let HomePageUrl = "\(UrlType)home"
+let ProductListUrl = "\(UrlType)product-list-filter"
+
 enum fontName:String
 {
 case poppinsMedium = "POPPINS-MEDIUM"

@@ -9,6 +9,9 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - QRCodeReader.swift (10.1.0)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
   - SwiftyJSON (4.3.0)
   - Toast-Swift (4.0.1)
   - ZKCarousel (1.1.1)
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView (~> 4.7)
   - QRCodeReader.swift (~> 10.0)
+  - SDWebImage
   - SwiftyJSON (~> 4.0)
   - Toast-Swift (~> 4.0.0)
   - ZKCarousel
@@ -34,6 +38,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
     - QRCodeReader.swift
+    - SDWebImage
     - SwiftyJSON
     - Toast-Swift
     - ZKCarousel
@@ -46,10 +51,11 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   ZKCarousel: e54940a77f4b635e650ea0361608db836a776feb
 
-PODFILE CHECKSUM: 2270256f1a3344a863caf9e20e5cac50fb71675e
+PODFILE CHECKSUM: d508f0ad5c262e32f1bd69e2c5cab09ed955802a
 
 COCOAPODS: 1.11.3

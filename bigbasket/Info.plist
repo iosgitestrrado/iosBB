@@ -43,5 +43,7 @@
 		<string>POPPINS-REGULAR.OTF</string>
 		<string>POPPINS-MEDIUM.OTF</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

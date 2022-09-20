@@ -11,12 +11,9 @@ import Toast_Swift
 
 class ViewController: UIViewController, CountryPickerViewDelegate {
     
-    @IBOutlet weak var CPV: CountryPickerView!
+    @IBOutlet weak var countryPickerView: CountryPickerView!
     @IBOutlet weak var btnForgotPassword: UIStackView!
-    
     @IBOutlet weak var textPhoneNumber: UITextField!
-    
-    
     @IBOutlet weak var btnLoginEmail: UIButton!
     @IBOutlet weak var viewBackView: UIView!
     @IBOutlet weak var btnSendOtp: UIButton!
@@ -29,22 +26,27 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
         
         
         userDefaultClass.setUserDefaultString(value: "en", key: .userLanguage)
-        CPV.delegate = self
-        CPV.showCountryCodeInView = false
-        CPV.showPhoneCodeInView = true
-        CPV.flagImageView.isHidden = false
+        countryPickerView.delegate = self
+        countryPickerView.showCountryCodeInView = false
+        countryPickerView.showPhoneCodeInView = true
+        countryPickerView.flagImageView.isHidden = false
         
-        CPV.showCountryNameInView = false
-        self.CPV.setCountryByPhoneCode("+966")
+        countryPickerView.showCountryNameInView = false
+        self.countryPickerView.setCountryByPhoneCode("+966")
         
         //  UIView.appearance().semanticContentAttribute = "ar" == "ar" ? .forceRightToLeft :.forceLeftToRight
         btnSendOtp.btnCorner()
         btnSendOtp.titleLabel?.font = UIFont(name: "POPPINS-REGULAR", size: 1)
         btnSendOtp.setTitle("sendOtp".localizableString(), for: .normal)
-        viewBackView.viewRoundCorners(with: .top)
+        viewBackView.viewRoundCorners(with: .top,radius: 14)
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.isHiddenNavigationBar(true)
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+          super.viewWillDisappear(animated)
+        self.isHiddenNavigationBar(false)
     }
     
     //MARK: - Action
@@ -61,13 +63,11 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
         do{
             if(try userAccountMasterClass.loginCredentialsVerification()){
                 
-            }
-        }catch{
-            self.view.makeToast("\(ErrorMsg.invalidPhoneNumber.rawValue)")
-        }
-        
+                self.StartSpiner()
         userAccountMasterClass.loginEndPoint { mdata in
+          
             do {
+                self.StopSpiner()
                 let jsonDecoder = JSONDecoder()
                 let responseModel = try jsonDecoder.decode(sendOtp_Base.self, from: mdata)
                 self.view.makeToast(responseModel.message)
@@ -79,6 +79,11 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
             }catch{
                 
             }
+        }
+            }
+        }catch{
+            self.StopSpiner()
+            self.view.makeToast("\(ErrorMsg.invalidPhoneNumber.rawValue)")
         }
     }
     //MARK: - NavigationController
@@ -106,7 +111,7 @@ class ViewController: UIViewController, CountryPickerViewDelegate {
     //MARK:  - Delegate
     
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
-        CPV.setCountryByCode(country.phoneCode)
+        countryPickerView.setCountryByCode(country.phoneCode)
         selectedContryCode = "\(country.phoneCode)"
         print(country.phoneCode)
     }

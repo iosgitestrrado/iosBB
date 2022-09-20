@@ -24,7 +24,7 @@ class VerificationOtpVC: UIViewController {
     let userDefaultClass = UserDefaultClass()
     override func viewDidLoad() {
         super.viewDidLoad()
-        backView.viewRoundCorners(with: .top)
+        backView.viewRoundCorners(with: .top,radius: 14)
         btnSendOtp.btnCorner()
         
         
@@ -80,9 +80,11 @@ class VerificationOtpVC: UIViewController {
         do {
             if(
                 try otpVerificationMasterClass.isOtpVerification()){
+                self.StartSpiner()
                 if isLoginPage {
                     otpVerificationMasterClass.LoginOtpVerificationEndPoint { mData in
                         do{
+                            self.StopSpiner()
                             print("#LoginOtp Response \(JSON(mData))")
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try   jsonDecoder.decode(LoginVerifyOtp_Base.self, from: mData)
@@ -92,6 +94,7 @@ class VerificationOtpVC: UIViewController {
                                 self.userDefaultClass.setUserDefaultString(value: "true", key: .isLogin)
                                 userDefaultClass.setUserDefaultString(value: responseModel.data?.access_token ?? "", key: .accessToken)
                                 self.goToHomePage()    }else{
+                                    self.StopSpiner()
                                     self.view.makeToast("\(responseModel.message ?? "")")
                                 } }catch{
                                 }}
@@ -110,16 +113,18 @@ class VerificationOtpVC: UIViewController {
                                 } }catch{
                                 }}}}
             else{
+                self.StopSpiner()
                 self.view.makeToast(ErrorMsg.invalidOtp.rawValue)
             }
         }catch{}
     }
     
     @IBAction func clickResndOtp(_ sender: Any) {
+        self.StartSpiner()
         let otpVerificationMasterClass = OtpVerificationMasterClass( countryCode: self.countryCode.replacingOccurrences(of: "+", with: "") , phoneNumber: self.phonenumber)
         
         otpVerificationMasterClass.ResendOtpEndPoint { mData in
-            
+            self.StopSpiner()
         }
     }
     

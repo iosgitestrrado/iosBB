@@ -17,5 +17,6 @@ target 'bigbasket' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.1'
   pod 'IQKeyboardManagerSwift'
+  pod 'SDWebImage'
 
 end
