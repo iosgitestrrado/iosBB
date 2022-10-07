@@ -3062,15 +3062,45 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blL-vJ-u9V">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="199" height="80"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcv-9r-dOZ">
-                                                                                        <rect key="frame" x="71" y="18" width="42" height="21"/>
-                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcv-9r-dOZ">
+                                                                                        <rect key="frame" x="72" y="2" width="55" height="40"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="40" id="NDP-5J-n4t"/>
+                                                                                            <constraint firstAttribute="width" constant="55" id="cnc-JQ-DHk"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isC-Ow-gam" customClass="FloatRatingView" customModule="FloatRatingView">
+                                                                                        <rect key="frame" x="67" y="44" width="65" height="16"/>
+                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="65" id="WzJ-Yj-BGS"/>
+                                                                                            <constraint firstAttribute="height" constant="16" id="tj0-t2-G6F"/>
+                                                                                        </constraints>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="inact-rate"/>
+                                                                                            <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="act-rate"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                                                                                <integer key="value" value="1"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                                                                                <integer key="value" value="5"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                                                                <real key="value" value="1"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="isC-Ow-gam" firstAttribute="centerX" secondItem="blL-vJ-u9V" secondAttribute="centerX" id="H8V-sU-rBM"/>
+                                                                                    <constraint firstItem="jcv-9r-dOZ" firstAttribute="top" secondItem="blL-vJ-u9V" secondAttribute="top" constant="2" id="lO5-E7-hkz"/>
+                                                                                    <constraint firstItem="isC-Ow-gam" firstAttribute="top" secondItem="jcv-9r-dOZ" secondAttribute="bottom" constant="2" id="ls7-1C-qRP"/>
+                                                                                    <constraint firstItem="jcv-9r-dOZ" firstAttribute="centerX" secondItem="blL-vJ-u9V" secondAttribute="centerX" id="tMJ-mJ-P7u"/>
+                                                                                </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQQ-4v-Hfg">
                                                                                 <rect key="frame" x="199" y="0.0" width="199" height="80"/>
@@ -3789,6 +3819,7 @@
         <image name="home-act" width="23.333333969116211" height="23.333333969116211"/>
         <image name="home-inact" width="23.333333969116211" height="23.333333969116211"/>
         <image name="homeLogo" width="369" height="117"/>
+        <image name="inact-rate" width="40" height="40"/>
         <image name="inact-wish" width="20" height="20"/>
         <image name="lang" width="16.666666030883789" height="16.666666030883789"/>
         <image name="list" width="40" height="40"/>
