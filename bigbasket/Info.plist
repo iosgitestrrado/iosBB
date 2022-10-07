@@ -7,6 +7,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>POPPINS-REGULAR.OTF</string>
+		<string>POPPINS-MEDIUM.OTF</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -16,16 +21,16 @@
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
-					<key>UISceneClassName</key>
+					<key></key>
 					<string></string>
-					<key>UISceneDelegateClassName</key>
+					<key>UISceneClassName</key>
 					<string></string>
 					<key>UISceneConfigurationName</key>
 					<string></string>
+					<key>UISceneDelegateClassName</key>
+					<string></string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
-					<key></key>
-					<string></string>
 				</dict>
 				<dict>
 					<key>UISceneConfigurationName</key>
@@ -38,11 +43,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>POPPINS-REGULAR.OTF</string>
-		<string>POPPINS-MEDIUM.OTF</string>
-	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

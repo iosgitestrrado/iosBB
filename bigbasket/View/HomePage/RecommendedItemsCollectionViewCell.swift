@@ -11,5 +11,5 @@ class RecommendedItemsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var qtyLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var TreandingProductImage: UIImageView!
+    @IBOutlet weak var ProductImage: UIImageView!
 }

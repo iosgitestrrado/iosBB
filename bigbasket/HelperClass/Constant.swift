@@ -5,14 +5,17 @@ import UIKit
 
 enum BaseUrl:String
 {
-case deve = "https://dev-bigbasket.estrradoweb.com/api/customer/"
-case live = "live"
-case testing = "test"
+case Dev = "https://dev-bigbasket.estrradoweb.com/api/customer/"
+case Live = "live"
+case Qa = "https://qa-bigbasket.estrradoweb.com/api/customer/"
 }
 
-let UrlType = "\(BaseUrl.deve.rawValue)";
+let Currency = "SAR"
+
+let UrlType = "\(BaseUrl.Qa.rawValue)";
 
 let loginUrl = "\(UrlType)login/send/otp"
+let loginEmailUrl = "\(UrlType)login"
 let signUpUrl = "\(UrlType)register"
 let registerVerifyOtpUrl = "\(UrlType)register/verify/otp"
 let resendOtpUrl = "\(UrlType)register/verify/otp"
@@ -22,6 +25,11 @@ let LoginVerifyOtpUrl = "\(UrlType)login/verify/otp"
 
 let HomePageUrl = "\(UrlType)home"
 let ProductListUrl = "\(UrlType)product-list-filter"
+let ProductListSubcategory = "\(UrlType)subcategory"
+let productDetailUrl = "\(UrlType)product-detail"
+let addCartUrl = "\(UrlType)add-cart"
+let cartUrl = "\(UrlType)cart"
+let changeQtyUrl = "\(UrlType)cart/change-qty"
 
 enum fontName:String
 {

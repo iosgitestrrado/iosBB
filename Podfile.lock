@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 5.4)
   - CountryPickerView (3.3.0)
   - CropViewController (2.6.1)
+  - FloatRatingView (4.0)
   - IQKeyboardManagerSwift (6.5.10)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 4.1)
   - CountryPickerView
   - CropViewController
+  - FloatRatingView (~> 4)
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView (~> 4.7)
   - QRCodeReader.swift (~> 10.0)
@@ -35,6 +37,7 @@ SPEC REPOS:
     - AlamofireImage
     - CountryPickerView
     - CropViewController
+    - FloatRatingView
     - IQKeyboardManagerSwift
     - NVActivityIndicatorView
     - QRCodeReader.swift
@@ -48,6 +51,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   CountryPickerView: 6322ada32a80b0cd721b0267282a5c24f406f263
   CropViewController: 58fb440f30dac788b129d2a1f24cffdcb102669c
+  FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
@@ -56,6 +60,6 @@ SPEC CHECKSUMS:
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   ZKCarousel: e54940a77f4b635e650ea0361608db836a776feb
 
-PODFILE CHECKSUM: d508f0ad5c262e32f1bd69e2c5cab09ed955802a
+PODFILE CHECKSUM: 9e37cefcc056eb37f749ca0754cfa66736c85669
 
 COCOAPODS: 1.11.3

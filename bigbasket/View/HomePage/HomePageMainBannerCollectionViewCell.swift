@@ -10,4 +10,5 @@ import UIKit
 class HomePageMainBannerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bannerImage: UIImageView!
     
+    @IBOutlet weak var backViewImage: UIView!
 }

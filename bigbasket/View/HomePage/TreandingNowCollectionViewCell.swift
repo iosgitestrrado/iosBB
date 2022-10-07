@@ -9,10 +9,11 @@ import UIKit
 
 class TreandingNowCollectionViewCell: UICollectionViewCell {
     
-   
+    @IBOutlet weak var offLabel: UILabel!
+    @IBOutlet weak var BackView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var qtyLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var ProductName: UILabel!
     @IBOutlet weak var TreandingProductImage: UIImageView!
     
 }

@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class NetworkingHandler:NSObject {
   
@@ -31,14 +32,16 @@ class NetworkingHandler:NSObject {
                 }
                 switch  response.result{
                 case .success :
-                print("Json\(String(describing: response.data))")
+                    let mdata = JSON(response.data)
+                    print("#Json\(mdata)")
+                    
                     success(responseData)
                     break
                 case .failure(let error):
                     failure(error)
                 }
             }catch{
-                print(error)
+                print("##\(error)")
             }
         }
     }

@@ -10,6 +10,7 @@ import SwiftyJSON
 
 class VerificationOtpVC: UIViewController {
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var resendOtp: UIButton!
     @IBOutlet weak var btnSendOtp: UIButton!
     @IBOutlet weak var backView: UIView!
@@ -24,6 +25,7 @@ class VerificationOtpVC: UIViewController {
     let userDefaultClass = UserDefaultClass()
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.setTitle("", for: .normal)
         backView.viewRoundCorners(with: .top,radius: 14)
         btnSendOtp.btnCorner()
         
@@ -74,9 +76,12 @@ class VerificationOtpVC: UIViewController {
     //MARK: - Action
     
     
+    @IBAction func clickBackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     @IBAction func clickSendOtp(_ sender: Any) {
         
-        let otpVerificationMasterClass = OtpVerificationMasterClass(countryCode:self.countryCode.replacingOccurrences(of: "+", with: ""), phoneNumber: self.phonenumber, Otp1: otpTextField1.text!, Otp2: otpTextField2.text!, Otp3: otpTextField3.text!, Otp4: otpTextField4.text!, Otp5: otpTextField5.text!)
+        let otpVerificationMasterClass = OtpVerificationMasterClass(countryCode:"+\(self.countryCode)", phoneNumber: self.phonenumber, Otp1: otpTextField1.text!, Otp2: otpTextField2.text!, Otp3: otpTextField3.text!, Otp4: otpTextField4.text!, Otp5: otpTextField5.text!)
         do {
             if(
                 try otpVerificationMasterClass.isOtpVerification()){
@@ -93,13 +98,14 @@ class VerificationOtpVC: UIViewController {
                                 let userDefaultClass = UserDefaultClass()
                                 self.userDefaultClass.setUserDefaultString(value: "true", key: .isLogin)
                                 userDefaultClass.setUserDefaultString(value: responseModel.data?.access_token ?? "", key: .accessToken)
-                                self.goToHomePage()    }else{
+                                userDefaultClass.setUserDefaultString(value:"\(responseModel.data?.user_details?.user_id ?? 0)" , key: .userId)
+                                self.goToHomePage() }else{
                                     self.StopSpiner()
                                     self.view.makeToast("\(responseModel.message ?? "")")
                                 } }catch{
                                 }}
                 }else{
-                   
+                    
                     
                     otpVerificationMasterClass.RegisterOtpVerificationEndPoint { mData in
                         do{
@@ -107,7 +113,7 @@ class VerificationOtpVC: UIViewController {
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try   jsonDecoder.decode(RegisterVerifyOtp_Base.self, from: mData)
                             if (responseModel.httpcode == 200)  {
-                              
+                                
                                 self.goToHomePage()    }else{
                                     self.view.makeToast("\(responseModel.message ?? "")")
                                 } }catch{

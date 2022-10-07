@@ -33,7 +33,7 @@ class LaunchScreenVC: UIViewController {
     }
     func goToLoginVc (){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! LoginPageViewController
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

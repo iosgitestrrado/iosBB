@@ -24,7 +24,7 @@ extension String {
     //MARK: - Valid Email
     func isValidEmail() -> Bool {
         // here, `try!` will always succeed because the pattern is valid
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        let regex = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", options: .caseInsensitive)
         return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }
     //MARK: - ValidPassword
@@ -82,8 +82,75 @@ extension UIView {
         self.layer.shadowRadius = 4.0
         self.layer.masksToBounds = true
     }
-
-    func viewRoundCorners(with type: RoundType, radius: CGFloat) {
+    func viewSetcornerRadiusRedColor(radius: CGFloat,showShadow:Bool = true){
+        if showShadow {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor =  UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor
+            self.layer.shadowOpacity = 0.5
+            self.layer.shadowOffset = CGSize(width: 2, height:0)
+            self.layer.shadowRadius = radius
+        }
+      
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = radius;
+        self.layer.borderColor = UIColor(red:255/255, green:59/255, blue:48/255, alpha: 1).cgColor
+        //self.layer.masksToBounds = true;
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOpacity = 0.8
+//        self.layer.shadowRadius = 3.0
+//        self.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+    }
+    
+    func viewSetcornerRadius(radius: CGFloat,showShadow:Bool = true){
+        if showShadow {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor =  UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor
+            self.layer.shadowOpacity = 0.5
+            self.layer.shadowOffset = CGSize(width: 2, height:0)
+            self.layer.shadowRadius = radius
+        }
+      
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = radius;
+        self.layer.borderColor = UIColor(red:245/255, green:247/255, blue:251/255, alpha: 1).cgColor //UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor //UIColor(red:245/255, green:247/255, blue:251/255, alpha: 1).cgColor
+        
+    }
+    
+    func viewSetcornerRadiusBlueColor(radius: CGFloat,showShadow:Bool = true){
+        if showShadow {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor =  UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor
+            self.layer.shadowOpacity = 0.5
+            self.layer.shadowOffset = CGSize(width: 2, height:0)
+            self.layer.shadowRadius = radius
+        }
+      
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = radius;
+        self.layer.borderColor = UIColor(red:0/255, green:112/255, blue:180/255, alpha: 1).cgColor
+        
+    }
+    func viewSetcornerRadius2(radius: CGFloat,showShadow:Bool = true){
+        if showShadow {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor =  UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor
+            self.layer.shadowOpacity = 0.5
+            self.layer.shadowOffset = CGSize(width: 2, height:0)
+            self.layer.shadowRadius = radius
+        }
+      
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = radius;
+        self.layer.borderColor = UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor //UIColor(red:187/255, green:187/255, blue:187/255, alpha: 1).cgColor //UIColor(red:245/255, green:247/255, blue:251/255, alpha: 1).cgColor
+        
+    }
+    func viewRoundCorners(with type: RoundType, radius: CGFloat,showBorders:Bool = false) {
+        if showBorders {
+            self.layer.borderWidth = 1.5
+           
+            self.layer.borderColor = UIColor(red:187/255, green:187/255, blue:187/255, alpha: 0.5).cgColor
+        }
+        
             var corners: UIRectCorner
             switch type {
             case .top:
@@ -102,6 +169,8 @@ extension UIView {
                 mask.path = path.cgPath
                 self.layer.mask = mask
             }
+        
+        
         }
 
 }

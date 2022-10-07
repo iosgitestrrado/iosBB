@@ -10,4 +10,5 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var CategoryName: UILabel!
     
+    @IBOutlet weak var BackView: UIView!
 }

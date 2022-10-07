@@ -18,5 +18,6 @@ target 'bigbasket' do
   pod 'Alamofire', '~> 5.1'
   pod 'IQKeyboardManagerSwift'
   pod 'SDWebImage'
+  pod 'FloatRatingView', '~> 4'
 
 end

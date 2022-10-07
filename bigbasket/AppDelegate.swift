@@ -11,7 +11,7 @@ import IQKeyboardManagerSwift
 @available(iOS 13.0, *)
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         UIApplication.shared.statusBarStyle = .lightContent
@@ -33,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
     }
 
-
+    func goToLogin() {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let redViewController = mainStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! LoginPageViewController
+        let navigationController = UINavigationController(rootViewController: redViewController)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController?.navigationController
+    }
 }
 

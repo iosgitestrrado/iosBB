@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ErrorMsg: String,Error {
+enum ErrorMsg: String, Error {
 case invalidPhoneNumber = "Invalid phone number"
 case invalidOtp = "Invalid OTP"
 case invalidEmailAddress = "Invalid email address"

@@ -11,7 +11,11 @@ import Toast_Swift
 
 class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     
+    @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var BtnsendOtp: UIButton!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var backViewMobielNumber: UIView!
     @IBOutlet weak var countryPickerView: CountryPickerView!
     
     @IBOutlet weak var textPhoneNumber: UITextField!
@@ -19,7 +23,11 @@ class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        backButton.setTitle("", for: .normal)
+        BtnsendOtp.btnCorner()
+        backView.viewRoundCorners(with: .top, radius: 14, showBorders: true)
+        backViewMobielNumber.viewSetcornerRadius(radius: 4,showShadow: false)
+        countryPickerView.font = UIFont.systemFont(ofSize: 14.0)
         countryPickerView.delegate = self
         countryPickerView.showCountryCodeInView = false
         countryPickerView.showPhoneCodeInView = true
@@ -31,6 +39,9 @@ class ForgotPasswordVC: UIViewController, CountryPickerViewDelegate {
     
     //MARK: - Action
     
+    @IBAction func clickBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func clickSendOtp(_ sender: Any) {
         let forgotPasswordMasterClass = ForgotPasswordMasterClass(phoneNumber: textPhoneNumber.text!, contryCode: selectedContryCode)
