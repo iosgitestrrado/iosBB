@@ -29,7 +29,7 @@ class ProfileVC: UIViewController {
 // MARK: - API Section
 extension ProfileVC {
     private func getProfileData() {
-        if !Reachability.isConnectedToNetwork() {
+       /* if !Reachability.isConnectedToNetwork() {
             Toast.show()
             return
         }
@@ -55,7 +55,7 @@ extension ProfileVC {
             cellList.append(ProfileListCellData(title: "Logout".localizableString(), image: "logout"))
             self.tableView.reloadData()
             Core.HideProgress(self)
-        }
+        }*/
     }
 }
 
@@ -66,14 +66,14 @@ extension ProfileVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellData = cellList[indexPath.row]
+       /* let cellData = cellList[indexPath.row]
         if let profileData = cellData as? ProfileModel, let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell {
             cell.configure(profileData)
             return cell
         } else if let listData = cellData as? ProfileListCellData, let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row == cellList.count - 1 ? ListTableViewCell.logoutIdentifier : ListTableViewCell.identifier, for: indexPath) as? ListTableViewCell {
             cell.configure(listData)
             return cell
-        }
+        }*/
         return UITableViewCell()
     }
 }

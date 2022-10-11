@@ -13,8 +13,8 @@ class CategoryPageVc: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var categoryTitle: UILabel!
 
-    private var categoryList = [CategoryModel]()
-    private var subCategoryList = [SubCategoryModel]()
+//    private var categoryList = [CategoryModel]()
+//    private var subCategoryList = [SubCategoryModel]()
     private var selectedCatgoryIndex = -1
     
     private var gridWidth: CGFloat = 124.0
@@ -39,8 +39,8 @@ class CategoryPageVc: UIViewController {
     }
 
     private func selectCategory(_ row: Int) {
-        subCategoryList = categoryList[row].Subcategories
-        categoryTitle.text = categoryList[row].Name
+//        subCategoryList = categoryList[row].Subcategories
+//        categoryTitle.text = categoryList[row].Name
         selectedCatgoryIndex = row
         self.tableView.reloadData()
         self.collectionView.reloadData()
@@ -50,7 +50,7 @@ class CategoryPageVc: UIViewController {
 // MARK: - API Section
 extension CategoryPageVc {
     private func getCategories() {
-        if !Reachability.isConnectedToNetwork() {
+        /*if !Reachability.isConnectedToNetwork() {
             Toast.show()
             return
         }
@@ -61,21 +61,21 @@ extension CategoryPageVc {
                 selectCategory(0)
             }
             Core.HideProgress(self)
-        }
+        }*/
     }
 }
 
 // MARK: - UITableViewDataSource -
 extension CategoryPageVc: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList.count
+        return 0// categoryList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as? CategoryTableViewCell {
+        /*if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as? CategoryTableViewCell {
             cell.configure(categoryList[indexPath.row], isSelectedRow: selectedCatgoryIndex == indexPath.row)
             return cell
-        }
+        }*/
         return UITableViewCell()
     }
 }
@@ -83,11 +83,11 @@ extension CategoryPageVc: UITableViewDataSource {
 // MARK: - UITableViewDelegate -
 extension CategoryPageVc: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        subCategoryList = categoryList[indexPath.row].Subcategories
+       /* subCategoryList = categoryList[indexPath.row].Subcategories
         categoryTitle.text = categoryList[indexPath.row].Name
         selectedCatgoryIndex = indexPath.row
         self.tableView.reloadData()
-        self.collectionView.reloadData()
+        self.collectionView.reloadData()*/
     }
 }
 
@@ -95,14 +95,14 @@ extension CategoryPageVc: UITableViewDelegate {
 // MARK: - UICollectionViewDataSource -
 extension CategoryPageVc: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return subCategoryList.count
+        return 0// subCategoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell {
+       /* if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell {
             cell.configure(subCategoryList[indexPath.row])
             return cell
-        }
+        }*/
         return UICollectionViewCell()
     }
 }

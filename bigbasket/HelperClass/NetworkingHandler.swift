@@ -11,12 +11,10 @@ import SwiftyJSON
 import UIKit
 
 class NetworkingHandler:NSObject {
-<<<<<<< HEAD
-  
-=======
+
    // let inputString = "{\"User\":[{\"userlogin\":[\"\(self.emailAddress.text!)\", \"\(self.password.text!)\"]}]}"
     static let shared = NetworkingHandler()
->>>>>>> dev_durgesh
+
     
     static func Post(url:String,param:[String:Any],success: @escaping (Data)->Void,failure :@escaping (Error)->Void){
         print("##URL \(url)")
@@ -56,7 +54,7 @@ class NetworkingHandler:NSObject {
             }
         }
     }
-    
+    /*
     static func postAPI<T: Decodable>(with url: String, parameter: [String: Any], decode: @escaping (Decodable) -> T?, completion: @escaping (APIResult<T, APIError>) -> Void) {
         NetworkingHandler.fetchData(url, param: parameter, decodingType: T.self) { json, error in
             DispatchQueue.main.async {
@@ -113,7 +111,7 @@ class NetworkingHandler:NSObject {
             }
         })
     }
-    
+    */
     
 }
 
