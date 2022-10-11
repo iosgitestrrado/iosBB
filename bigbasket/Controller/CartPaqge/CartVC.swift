@@ -8,6 +8,9 @@
 import UIKit
 
 class CartVC: UIViewController {
+    
+    @IBOutlet weak var tabeViewHight: NSLayoutConstraint!
+    @IBOutlet weak var couponBackView: UIView!
     @IBOutlet weak var cartItemTabelView: UITableView!
     @IBOutlet weak var BillViewPrice: UILabel!
     let coreDM = CoreDataManager();
@@ -19,8 +22,10 @@ class CartVC: UIViewController {
     @IBOutlet weak var BillViewCoupon: UILabel!
     @IBOutlet weak var BillViewDeliveryShow: UILabel!
     
+    @IBOutlet weak var addCouponBackView: UIView!
     @IBOutlet weak var beforChekOutCollectionView: UICollectionView!
     @IBOutlet weak var backViewBill: UIView!
+    @IBOutlet weak var couponCloseButton: UIButton!
     
     let cartMasterClass = CartMasterClass();
     var cartItem = [Product]();
@@ -40,9 +45,13 @@ class CartVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+       
+        couponCloseButton.setTitle("", for: .normal)
+        addCouponBackView.viewSetcornerRadius(radius: 4,showShadow: false)
+        couponBackView.addDashedBorder()
         beforChekOutCollectionView.delegate = self
         beforChekOutCollectionView.dataSource = self
-        backViewBill.viewSetcornerRadius(radius: 5)
+        backViewBill.viewSetcornerRadius(radius: 8,showShadow: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,11 +65,13 @@ class CartVC: UIViewController {
         cartItemTabelView.delegate = self
         cartItemTabelView.dataSource = self
         cartItemTabelView.reloadData()
+        self.tabeViewHight.constant = self.cartItemTabelView.contentSize.height
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+       
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
@@ -85,6 +96,8 @@ class CartVC: UIViewController {
                     if let mProduct = responseModel.data?.product {
                         cartItem = mProduct
                         cartItemTabelView.reloadData()
+                        self.tabeViewHight.constant = self.cartItemTabelView.contentSize.height + 50
+                      
                     }
                     
                     if let mcartData = responseModel.data {
@@ -168,6 +181,7 @@ extension CartVC :UICollectionViewDelegate,UICollectionViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0;//Choose your custom row height
     }
+        
     
     @objc func clickPluseButton (sender:UIButton){
         

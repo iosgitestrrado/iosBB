@@ -285,7 +285,7 @@
         <!--Login Page View Controller-->
         <scene sceneID="ndI-Ap-CmF">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="6IL-ZJ-dC4" customClass="LoginPageViewController" customModule="bigbasket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPageViewController" id="6IL-ZJ-dC4" customClass="LoginPageViewController" customModule="bigbasket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xbs-31-oyH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

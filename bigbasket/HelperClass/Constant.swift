@@ -3,11 +3,17 @@
 import Foundation
 import UIKit
 
-enum BaseUrl:String
+enum BaseUrl: String
 {
+<<<<<<< HEAD
 case Dev = "https://dev-bigbasket.estrradoweb.com/api/customer/"
 case Live = "live"
 case Qa = "https://qa-bigbasket.estrradoweb.com/api/customer/"
+=======
+    case deve = "https://dev-bigbasket.estrradoweb.com/api/customer/"
+    case live = "live"
+    case testing = "test"
+>>>>>>> dev_durgesh
 }
 
 let Currency = "SAR"
@@ -23,6 +29,7 @@ let ResendOtpUrl = "\(UrlType)login/send/otp"
 let ForgotPasswordUrl = "\(UrlType)/login/forgot/password"
 let LoginVerifyOtpUrl = "\(UrlType)login/verify/otp"
 
+<<<<<<< HEAD
 let HomePageUrl = "\(UrlType)home"
 let ProductListUrl = "\(UrlType)product-list-filter"
 let ProductListSubcategory = "\(UrlType)subcategory"
@@ -30,14 +37,19 @@ let productDetailUrl = "\(UrlType)product-detail"
 let addCartUrl = "\(UrlType)add-cart"
 let cartUrl = "\(UrlType)cart"
 let changeQtyUrl = "\(UrlType)cart/change-qty"
+=======
+
+let CategorySubCatURL = "\(UrlType)cat-subcat"
+let ProfileURL = "\(UrlType)profile"
+>>>>>>> dev_durgesh
 
 enum fontName:String
 {
-case poppinsMedium = "POPPINS-MEDIUM"
-case Poppinsregular = "POPPINS-REGULAR"
-
+    case poppinsMedium = "POPPINS-MEDIUM"
+    case Poppinsregular = "POPPINS-REGULAR"
 }
 
+let defaultImage = UIImage(named: "noti")!
 
 //MARK: - Language
 

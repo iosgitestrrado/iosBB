@@ -145,9 +145,7 @@ class LoginPageViewController: UIViewController, CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didShow viewController: CountryPickerViewController) {
         
     }
-    
 }
-
 func languageUpdate(languageSelected: Language){
     
     

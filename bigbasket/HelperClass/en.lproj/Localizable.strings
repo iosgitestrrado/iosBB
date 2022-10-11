@@ -29,4 +29,14 @@
 "Wallet" = "Wallet";
 "Notification" = "Notification";
 "Profile" = "Profile";
-
+"Wallet" = "Wallet";
+"Credits" = "Credits";
+"Points" = "Points";
+"MyOrders" = "My Orders";
+"MyWishlist" = "My Wishlist";
+"ManageAddress" = "Manage Address";
+"Coupons" = "Coupons";
+"BusinessDetails" = "Business Details";
+"Referrals" = "Referrals";
+"Support" = "Support";
+"Logout" = "Logout";
