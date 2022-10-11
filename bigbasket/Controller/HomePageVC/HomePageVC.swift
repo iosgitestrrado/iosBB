@@ -423,10 +423,10 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         
         if collectionView == TreandingNowCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TreandingNowCollectionViewCell", for: indexPath) as! TreandingNowCollectionViewCell
-            
+            if !(TrendingProducts[indexPath.row].image?.isEmpty ?? true) {
             if let url = URL(string: TrendingProducts[indexPath.row].image?[0].image ?? ""){
                 cell.TreandingProductImage.sd_setImage(with:url, completed: nil)
-            }
+            }}
             cell.offLabel.text = "69%\nOFF"
             
             cell.ProductName.text = TrendingProducts[indexPath.row].product_name

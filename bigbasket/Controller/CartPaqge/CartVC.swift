@@ -9,6 +9,7 @@ import UIKit
 
 class CartVC: UIViewController {
     
+    @IBOutlet weak var scroolViewHight: NSLayoutConstraint!
     @IBOutlet weak var tabeViewHight: NSLayoutConstraint!
     @IBOutlet weak var couponBackView: UIView!
     @IBOutlet weak var cartItemTabelView: UITableView!
@@ -48,7 +49,7 @@ class CartVC: UIViewController {
        
         couponCloseButton.setTitle("", for: .normal)
         addCouponBackView.viewSetcornerRadius(radius: 4,showShadow: false)
-        couponBackView.addDashedBorder()
+       // couponBackView.addDashedBorder()
         beforChekOutCollectionView.delegate = self
         beforChekOutCollectionView.dataSource = self
         backViewBill.viewSetcornerRadius(radius: 8,showShadow: false)
@@ -61,11 +62,9 @@ class CartVC: UIViewController {
         BillViewGstShow.text = "\(0) \(Currency)"
         BillViewCoupon.text = "\(0) \(Currency)"
         BillViewDeliveryShow.text = "\(0) \(Currency)"
+        callEndPointGetCart()
         
-        cartItemTabelView.delegate = self
-        cartItemTabelView.dataSource = self
-        cartItemTabelView.reloadData()
-        self.tabeViewHight.constant = self.cartItemTabelView.contentSize.height
+        
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
     }
@@ -95,8 +94,13 @@ class CartVC: UIViewController {
                     
                     if let mProduct = responseModel.data?.product {
                         cartItem = mProduct
+                        cartItemTabelView.delegate = self
+                        cartItemTabelView.dataSource = self
                         cartItemTabelView.reloadData()
-                        self.tabeViewHight.constant = self.cartItemTabelView.contentSize.height + 50
+                        let hight =  self.cartItemTabelView.contentSize.height
+                        self.tabeViewHight.constant = hight
+                        self.scroolViewHight.constant = self.cartItemTabelView.contentSize.height + 950
+                        print("##\(hight)")
                       
                     }
                     
