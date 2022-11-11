@@ -23,6 +23,9 @@ class LaunchScreenVC: UIViewController {
            
         })
     }
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+       return .portrait
+    }
     
     //MARK: - NavigationController
     

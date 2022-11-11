@@ -62,11 +62,12 @@ struct OtpVerificationMasterClass{
     }
     
     func LoginOtpVerificationEndPoint(completion:@escaping (Data)->Void){
+        let randomInt = Int.random(in: 0..<12)
         let param = ["otp":"\(Otp1)\(Otp2)\(Otp3)\(Otp4)",
                      "country_code":countryCode,
                      "phone_number":phoneNumber,
-                     "deviceToken":"12345",
-                     "deviceId":"123458800",
+                     "deviceToken":"\(randomInt)",
+                     "deviceId":"\(randomInt)",
                      "deviceName":"iPhone",
                      "os":"ios"]
         

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Toast_Swift
 enum RoundType {
     case top
     case none
@@ -76,12 +77,13 @@ extension UIColor{
 extension UIView {
     
     
-    
+    func ShowMessage(message:String){
+        self.makeToast(message)
+    }
     
   
       func addDashedBorder() {
         let color = UIColor.systemGreen.cgColor
-
         let shapeLayer:CAShapeLayer = CAShapeLayer()
         let frameSize = self.frame.size
         let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
@@ -94,11 +96,7 @@ extension UIView {
         shapeLayer.lineJoin = CAShapeLayerLineJoin.round
         shapeLayer.lineDashPattern = [6,3]
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 4).cgPath
-
         self.layer.addSublayer(shapeLayer)
-          
-          
-        
     }
     
     func AddShadow(){

@@ -7,7 +7,10 @@ import Alamofire
 @available(iOS 13.0, *)
 class HomePageVC: UIViewController {
     
+    @IBOutlet weak var category_productsLabel: UILabel!
     
+    @IBOutlet weak var second_categoryLabel: UILabel!
+    @IBOutlet weak var first_categoryLabel: UILabel!
     @IBOutlet weak var page: UIPageControl!
     @IBOutlet weak var mainPageControl2: UIPageControl!
     @IBOutlet weak var BottomBannerCollectionView: UICollectionView!
@@ -50,12 +53,13 @@ class HomePageVC: UIViewController {
     var HomeCategory = [Category]();
     var TopOfferBanner = [Top_offer_banner]();
     var BrandTopTry = [Brands]();
+    var HomepageCategorie :Homepage_categories?
     var TrendingProducts = [Trending_products]();
-    var FruitAndVegs = [Fruit_and_vegs]();
+    var FruitAndVegs = [FirstCategory]();
     var NewArrivals = [New_arrivals]();
-    var Grocery  = [Grocery_subcat]();
+    var Grocery  = [SecondCategory]();
     var FeaturedProducts = [Featured_products]();
-    var mBeverageProducts = [Beverage_products]();
+    var mBeverageProducts = [CategoryProducts]();
     var ExploreProducts = [Explore_products]();
     
     var MainBannerCurrentPage: Int = 0
@@ -70,7 +74,6 @@ class HomePageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         mainBannerCollectionView.delegate = self
         mainBannerCollectionView.dataSource = self
         CenterBannerCollectionView.dataSource = self
@@ -97,8 +100,6 @@ class HomePageVC: UIViewController {
         BeverageProductsCollectionView.delegate = self
         ExploreProductsCollectionView.delegate = self
         ExploreProductsCollectionView.dataSource = self
-        
-       
         backViewGrocery.viewSetcornerRadius(radius: 14)
         FruitAndVegsBackView.viewSetcornerRadius(radius: 14)
         mainBanerBackView.viewRoundCorners(with: .both,radius: 14)
@@ -120,7 +121,63 @@ class HomePageVC: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
+        } else {
+            return .all
+        }
+    }
+    //MARK: - Action
     
+    @IBAction func clickViewAll(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductListViewController") as? ProductListViewController
+        if sender.tag == 0 {
+            vc?.categoryId = "\(TrendingProducts[0].subcategory_id ?? 0)"
+            vc?.subUrl = "trending-products"
+            vc?.isShowSubcategory = false
+            vc?.categoryName = ""
+        }
+        else if sender.tag == 1 {
+            if !FruitAndVegs.isEmpty{
+            vc?.categoryId = "\(FruitAndVegs[0].category_id ?? 0)"
+            vc?.isShowSubcategory = true
+                vc?.categoryName = ""}
+        }
+        else if sender.tag == 2 {
+            vc?.categoryId = "\(TrendingProducts[0].subcategory_id ?? 0)"
+            vc?.subUrl = "products-latest"
+            vc?.isShowSubcategory = false
+            vc?.categoryId = ""
+            vc?.categoryName = ""
+        }
+        else if sender.tag == 3 {
+            if !Grocery.isEmpty{
+            vc?.categoryId = "\(Grocery[0].category_id ?? 0)"
+            vc?.isShowSubcategory = true
+                vc?.categoryName = ""}
+        }
+        else if sender.tag == 4 {
+            vc?.categoryId = "\(TrendingProducts[0].subcategory_id ?? 0)"
+            vc?.subUrl = "product-featured"
+            vc?.isShowSubcategory = false
+            vc?.categoryName = ""
+        }
+        else if sender.tag == 5 {
+            vc?.categoryId = "\(TrendingProducts[0].subcategory_id ?? 0)"
+            vc?.subUrl = "beverage-products"
+            vc?.isShowSubcategory = false
+            vc?.categoryName = ""
+        }
+        else if sender.tag == 6 {
+            vc?.categoryId = "\(TrendingProducts[0].subcategory_id ?? 0)"
+            vc?.subUrl = "explore-products"
+            vc?.isShowSubcategory = false
+            vc?.categoryName = ""
+        }
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     //MARK: - Function
     
     @objc func changeImage(){
@@ -190,6 +247,13 @@ class HomePageVC: UIViewController {
                 DispatchQueue.main.async { [self] in
                     self.StopSpiner()
                     if responseModel.httpcode == 200{
+                        Currency = responseModel.data?.currency ?? "SAR"
+                        if let homepageCategorie = responseModel.data?.homepage_categories {
+                            self.HomepageCategorie = homepageCategorie
+                            self.first_categoryLabel.text = HomepageCategorie?.first_category
+                            self.second_categoryLabel.text
+                            = HomepageCategorie?.second_category
+                        }
                     if let banner = responseModel.data?.main_banner {
                         self.MainBanner = banner
                         mainPageControl.numberOfPages = MainBanner.count
@@ -227,7 +291,7 @@ class HomePageVC: UIViewController {
 //                        self.TrendingProducts = trendingProducts
 //                        self.RecommendedItemsCollectionView.reloadData()
 //                    }
-                    if let fruitAndVegs = responseModel.data?.fruit_and_vegs{
+                    if let fruitAndVegs = responseModel.data?.first_category{
                         self.FruitAndVegs = fruitAndVegs
                         self.FruitAndVegsCollectionView.reloadData()
                     }
@@ -235,7 +299,7 @@ class HomePageVC: UIViewController {
                         self.NewArrivals = newArrivals
                         self.NewArrivalsCollectionView.reloadData()
                     }
-                    if let grocery = responseModel.data?.grocery_subcat {
+                    if let grocery = responseModel.data?.second_category {
                         self.Grocery = grocery
                         self.GroceryCollectionView.reloadData()
 
@@ -244,7 +308,7 @@ class HomePageVC: UIViewController {
                         self.FeaturedProducts = featuredProducts
                         self.FeaturedProductsCollectionView.reloadData()
                     }
-                    if let beverageProducts = responseModel.data?.beverage_products {
+                    if let beverageProducts = responseModel.data?.category_products {
                         self.mBeverageProducts = beverageProducts
                         self.BeverageProductsCollectionView.reloadData()
                     }
@@ -256,7 +320,17 @@ class HomePageVC: UIViewController {
                    timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
                     }
                     else {
-                        AppDelegate.goToLogin()
+                        DispatchQueue.main.async {
+                            if let cont = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController, !(cont.viewControllers.last is LoginPageViewController) {
+                                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                                let myobject = storyBoard.instantiateViewController(withIdentifier: "LoginPageViewController")
+                                cont.pushViewController(myobject, animated: true)
+                                let domain = Bundle.main.bundleIdentifier!
+                                UserDefaults.standard.removePersistentDomain(forName: domain)
+                                UserDefaults.standard.synchronize()
+                            }
+                        }
+                        //AppDelegate.goToLogin()
                     }
                     
                 }
@@ -342,7 +416,7 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             if !(mBeverageProducts[indexPath.row].image?.isEmpty ?? false) {
                 if let url = URL(string: mBeverageProducts[indexPath.row].image?[0].image ?? ""){
                     print("#URL\(url)")
-                    cell.PriceLabel.text = "\(mBeverageProducts[indexPath.row].actual_price ?? "0") Sar"
+                    cell.PriceLabel.text = "\(mBeverageProducts[indexPath.row].actual_price ?? "0") \(Currency)"
                     cell.ProductImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo") )
                    
                }}
@@ -361,7 +435,7 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
                 }}
             
             cell.ProductNameLabel.text = FeaturedProducts[indexPath.row].product_name
-            cell.PriceLabel.text = "\(FeaturedProducts[indexPath.row].actual_price ?? "0") Sar"
+            cell.PriceLabel.text = "\(FeaturedProducts[indexPath.row].actual_price ?? "0") \(Currency)"
             cell.BackView.viewSetcornerRadius(radius: 8)
             cell.BackView.AddShadow()
             return cell
@@ -390,7 +464,7 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             cell.backViewDisPrice.viewSetcornerRadius(radius: 4,showShadow: false)
             cell.shortDescriptionLabel.text = NewArrivals[indexPath.row].product_name ?? ""
             let price = NewArrivals[indexPath.row].actual_price  == "NULL" ? "0.00" :NewArrivals[indexPath.row].actual_price ?? ""
-            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "\(price)SAR")
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "\(price)\(Currency)")
                 attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
             cell.priceLabel.attributedText = attributeString
             cell.offLabel.text = "60%\nOFF"
@@ -519,7 +593,7 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         if collectionView == HomeCategoryCollectionView {
             
             let collectionViewWidth = collectionView.bounds.width
-            return CGSize(width:collectionViewWidth/5, height:  self.view.frame.width / 4)
+            return CGSize(width:collectionViewWidth/5, height:  self.view.frame.width / 4.5)
         }
         
         else if collectionView == TopOfferBannerCollectionView {
@@ -570,9 +644,6 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
            
             return 16
        }
-        
-       
-        
         return 2
     }
     
@@ -601,17 +672,17 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         print("#Did Select")
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductListViewController") as? ProductListViewController
         if collectionView == HomeCategoryCollectionView {
-           
+            if indexPath.row < 11 {
             vc?.categoryId = "\(HomeCategory[indexPath.row].id ?? 0)"
             vc?.categoryName = HomeCategory[indexPath.row].category_name ?? ""
             vc?.isShowSubcategory = true
             self.navigationController?.pushViewController(vc!, animated: true)
-            
+            }
         }
         
         if collectionView == BrandMustTryCollectionView {
             vc?.brandId = "\(BrandTopTry[indexPath.row].brand_id ?? 0)"
-            vc?.isShowSubcategory = false
+            vc?.isCallFilterApi = true
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         
@@ -631,6 +702,11 @@ extension HomePageVC: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         
         if collectionView == FruitAndVegsCollectionView {
             vc?.subcategoryId = "\(FruitAndVegs[indexPath.row].id ?? 0)"
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
+        if collectionView == GroceryCollectionView {
+            vc?.subcategoryId = "\(Grocery[indexPath.row].id ?? 0)"
             self.navigationController?.pushViewController(vc!, animated: true)
             
         }

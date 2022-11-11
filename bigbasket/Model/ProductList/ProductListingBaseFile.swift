@@ -38,20 +38,6 @@ struct ProductListData : Codable {
     let total_products : Int?
     let currency : String?
     
-    enum CodingKeys: String, CodingKey {
-        
-        case products = "products"
-        case total_products = "total_products"
-        case currency = "currency"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        products = try values.decodeIfPresent([ProductsData].self, forKey: .products)
-        total_products = try values.decodeIfPresent(Int.self, forKey: .total_products)
-        currency = try values.decodeIfPresent(String.self, forKey: .currency)
-    }
-    
 }
 
 //MARK: - Product
@@ -62,20 +48,20 @@ struct ProductsData : Codable {
     let category_id : Int?
     let category_name : String?
     let subcategory_id : Int?
-    let subcategory_name : String?
+    var subcategory_name : String?
     //   let brand_id : String?
     let brand_name : String?
     let product_type : String?
-    // let min_order_qty : Int?
-    //  let bulk_order_qty : Int?
-    let offer_name : Bool?
-    let discount_type : Bool?
-    let offer : Bool?
+    let min_order_qty : Int?
+    let bulk_order_qty : Int?
+    //let offer_name : Bool?
+  //  let discount_type : Bool?
+    let offer : String?
     let actual_price : String?
-    let offer_price : Bool?
-    let stock : Int?
+    let offer_price : String?
+    //let stock : Int?
     let is_out_of_stock : Bool?
-    let out_of_stock_selling : Bool?
+   // let out_of_stock_selling : Bool?
     //  let short_description : Bool?
     //  let tag : [String]?
     let is_rating : Int?
@@ -85,10 +71,7 @@ struct ProductsData : Codable {
     let variants_list : [ProuctListVariants_list]?
     //  let config_prd : [String]?
     //    let offers : [String]?
-    
-    
-    
-    
+
 }
 
 //MARK: - Explore Products Image
@@ -119,46 +102,11 @@ struct ProuctListVariants_list : Codable {
     let min_order_qty : Int?
     let bulk_order_qty : Int?
     let image : [ProductVariantsListImage]?
-    let offer_name : Bool?
-    let discount_type : Bool?
-    let offer : Bool?
+   // let offer_name : Bool?
+  //  let discount_type : Bool?
+   // let offer : Bool?
     let actual_price : String?
-    let offer_price : Bool?
-    
-    enum CodingKeys: String, CodingKey {
-        
-        case pro_id = "pro_id"
-        case combination = "combination"
-        case stock = "stock"
-        case is_out_of_stock = "is_out_of_stock"
-        case out_of_stock_selling = "out_of_stock_selling"
-        case min_order_qty = "min_order_qty"
-        case bulk_order_qty = "bulk_order_qty"
-        case image = "image"
-        case offer_name = "offer_name"
-        case discount_type = "discount_type"
-        case offer = "offer"
-        case actual_price = "actual_price"
-        case offer_price = "offer_price"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        pro_id = try values.decodeIfPresent(Int.self, forKey: .pro_id)
-        combination = try values.decodeIfPresent(String.self, forKey: .combination)
-        stock = try values.decodeIfPresent(Int.self, forKey: .stock)
-        is_out_of_stock = try values.decodeIfPresent(Bool.self, forKey: .is_out_of_stock)
-        out_of_stock_selling = try values.decodeIfPresent(Bool.self, forKey: .out_of_stock_selling)
-        min_order_qty = try values.decodeIfPresent(Int.self, forKey: .min_order_qty)
-        bulk_order_qty = try values.decodeIfPresent(Int.self, forKey: .bulk_order_qty)
-        image = try values.decodeIfPresent([ProductVariantsListImage].self, forKey: .image)
-        offer_name = try values.decodeIfPresent(Bool.self, forKey: .offer_name)
-        discount_type = try values.decodeIfPresent(Bool.self, forKey: .discount_type)
-        offer = try values.decodeIfPresent(Bool.self, forKey: .offer)
-        actual_price = try values.decodeIfPresent(String.self, forKey: .actual_price)
-        offer_price = try values.decodeIfPresent(Bool.self, forKey: .offer_price)
-    }
-    
+   // let offer_price : Bool?
 }
 
 
@@ -178,5 +126,4 @@ struct ProductVariantsListImage : Codable {
         image = try values.decodeIfPresent(String.self, forKey: .image)
         thumbnail = try values.decodeIfPresent(String.self, forKey: .thumbnail)
     }
-    
 }

@@ -18,12 +18,31 @@ struct ProductDetailData : Codable {
     let varaiants_list : [Varaiants_list]?
     let relative_products : [Relative_products]?
     let viewed_products : [Viewed_products]?
-    let review : [String]?
+    let review : [mReview]?
     let total_review : Int?
-    let rate_range : [String]?
+    let rate_range_ios : rate_range_ios?
    // let offer : [String]?
     let currency : String?
 }
+
+struct rate_range_ios : Codable {
+    let oneStar : Int?
+    let twoStar : Int?
+    let threeStar : Int?
+    let fourStar : Int?
+    let fiveStar : Int?
+}
+
+
+struct mReview : Codable {
+    let review_id : Int?
+    let customer_name : String?
+    let rating : Int?
+    let comment : String?
+    let image : String?
+    let date : String?
+}
+
 
 struct Varaiants_list : Codable {
     let pro_id : Int?
@@ -36,9 +55,9 @@ struct Varaiants_list : Codable {
    // let image : [String]?
    // let offer_name : Bool?
    // let discount_type : Bool?
-   // let offer : Bool?
+    let offer : String?
     let actual_price : String?
-    //let offer_price : Bool?
+    let offer_price : String?
 }
 
 
@@ -56,7 +75,7 @@ struct Product : Codable {
   //  let discount_type : Bool?
    // let offer : Bool?
     let actual_price : String?
-  //  let offer_price : Bool?
+    let offer_price : String?
     let sku : String?
     let category_id : Int?
     let category_name : String?
@@ -66,10 +85,10 @@ struct Product : Codable {
     let brand_name : String?
     let is_featured : Int?
     let short_description : String?
-    let long_description : String?
+   // let long_description : String?
     //let content : String?
     let specification : String?
-    let quill_specification : String?
+   // let quill_specification : String?
     let stock : Int?
     let is_out_of_stock : Bool?
     let out_of_stock_selling : Bool?
@@ -95,16 +114,16 @@ struct Relative_products : Codable {
    // let brand_id : String?
     let brand_name : String?
     let short_description : String?
-    let long_description : String?
+   // let long_description : String?
    // let content : String?
     let product_type : String?
   //  let min_order_qty : String?
    // let bulk_order_qty : String?
-    let offer_name : Bool?
+   // let offer_name : Bool?
    // let discount_type : Bool?
-    let offer : Bool?
+   // let offer : Bool?
     let actual_price : String?
-    let offer_price : Bool?
+  //  let offer_price : Bool?
     let stock : Int?
     let is_out_of_stock : Int?
     let out_of_stock_selling : Bool?

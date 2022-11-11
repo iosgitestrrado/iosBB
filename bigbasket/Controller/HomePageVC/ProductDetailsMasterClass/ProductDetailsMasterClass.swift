@@ -8,9 +8,9 @@
 import Foundation
 
 import SwiftyJSON
-
+let userDefaultClass = UserDefaultClass();
 struct ProductDetailsMasterClass{
-    let userDefaultClass = UserDefaultClass();
+   
     func ProductDetailsEndPoint(categoryId:Int,completion:@escaping (Data)->Void){
         
 let param = [ "lang_id": 1,
@@ -18,7 +18,7 @@ let param = [ "lang_id": 1,
               "device_id": "54655656fdf",
               "page_url": "https://products/us/img",
               "os_type": "APP",
-              "currency_code":"SAR",
+              "currency_code":Currency,
               "id":categoryId
 ] as [String : Any]
         NetworkingHandler.Post(url: productDetailUrl, param: param) { mdata in
@@ -45,4 +45,5 @@ let param = [ "lang_id": 1,
                 }
         
     }
+    
 }

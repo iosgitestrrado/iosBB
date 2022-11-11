@@ -43,6 +43,7 @@
 		23781D9D28B7434B0067042E /* OtpVerificationMasterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23781D9C28B7434B0067042E /* OtpVerificationMasterClass.swift */; };
 		23781D9F28B776520067042E /* VerifyOtp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23781D9E28B776520067042E /* VerifyOtp.swift */; };
 		237EEBE328E1B9BF00438DD6 /* CartItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237EEBE228E1B9BF00438DD6 /* CartItemsTableViewCell.swift */; };
+		238073EC291A289400FA1B2F /* AddFavBaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238073EB291A289400FA1B2F /* AddFavBaseFile.swift */; };
 		2381B0C128F578F90035C2E2 /* CustomDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381B0C028F578F90035C2E2 /* CustomDashedView.swift */; };
 		23A5959428C5EE000002D5AF /* CategoryPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A5959328C5EE000002D5AF /* CategoryPage.storyboard */; };
 		23A5959728C5EE400002D5AF /* CategoryPageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A5959628C5EE400002D5AF /* CategoryPageVc.swift */; };
@@ -61,6 +62,7 @@
 		23A90E9528D5F7BF00BB15A7 /* BeverageProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A90E9428D5F7BF00BB15A7 /* BeverageProductsCollectionViewCell.swift */; };
 		23AB8E2A28BC5FDA00FD0815 /* HomeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23AB8E2928BC5FDA00FD0815 /* HomeMain.storyboard */; };
 		23AB8E2E28BC82E000FD0815 /* CustomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB8E2D28BC82E000FD0815 /* CustomeTabBarController.swift */; };
+		23AEC37A290909460008E63C /* ProductByCategoryBaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AEC379290909460008E63C /* ProductByCategoryBaseFile.swift */; };
 		23BA357628B84680004756CA /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BA357528B84680004756CA /* ForgotPasswordVC.swift */; };
 		23BA357828B84FD4004756CA /* ForgotPasswodMasterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BA357728B84FD4004756CA /* ForgotPasswodMasterClass.swift */; };
 		23BA96F528B349790081DB5E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BA96F428B349790081DB5E /* Message.swift */; };
@@ -80,6 +82,10 @@
 		23ECA95828CEA746001DFFF3 /* HomePageMainBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECA95728CEA746001DFFF3 /* HomePageMainBannerCollectionViewCell.swift */; };
 		23EDCDFA28B344BC00F0EA75 /* UserDefaultClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCDF928B344BC00F0EA75 /* UserDefaultClass.swift */; };
 		23EDCDFC28B345AE00F0EA75 /* NetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDCDFB28B345AE00F0EA75 /* NetworkingHandler.swift */; };
+		23EDE20C28FFF64500211734 /* couponListBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDE20B28FFF64500211734 /* couponListBase.swift */; };
+		23EDE20E28FFFE8800211734 /* couponListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDE20D28FFFE8800211734 /* couponListVC.swift */; };
+		23EDE21029000CD300211734 /* coupenListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDE20F29000CD300211734 /* coupenListTableViewCell.swift */; };
+		23EDE2122900418B00211734 /* AddressBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EDE2112900418B00211734 /* AddressBase.swift */; };
 		23EE4B7E28E0AA8900D2F44D /* CartDb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23EE4B7C28E0AA8900D2F44D /* CartDb.xcdatamodeld */; };
 		23EE4B8128E0AACE00D2F44D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE4B8028E0AACE00D2F44D /* CoreDataManager.swift */; };
 		23F71C7E28A4FEE800DCB4B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F71C7D28A4FEE800DCB4B7 /* AppDelegate.swift */; };
@@ -154,6 +160,7 @@
 		23781D9C28B7434B0067042E /* OtpVerificationMasterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVerificationMasterClass.swift; sourceTree = "<group>"; };
 		23781D9E28B776520067042E /* VerifyOtp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOtp.swift; sourceTree = "<group>"; };
 		237EEBE228E1B9BF00438DD6 /* CartItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsTableViewCell.swift; sourceTree = "<group>"; };
+		238073EB291A289400FA1B2F /* AddFavBaseFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavBaseFile.swift; sourceTree = "<group>"; };
 		2381B0C028F578F90035C2E2 /* CustomDashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDashedView.swift; sourceTree = "<group>"; };
 		23A5959328C5EE000002D5AF /* CategoryPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryPage.storyboard; sourceTree = "<group>"; };
 		23A5959628C5EE400002D5AF /* CategoryPageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPageVc.swift; sourceTree = "<group>"; };
@@ -172,6 +179,7 @@
 		23A90E9428D5F7BF00BB15A7 /* BeverageProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeverageProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		23AB8E2928BC5FDA00FD0815 /* HomeMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeMain.storyboard; sourceTree = "<group>"; };
 		23AB8E2D28BC82E000FD0815 /* CustomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTabBarController.swift; sourceTree = "<group>"; };
+		23AEC379290909460008E63C /* ProductByCategoryBaseFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductByCategoryBaseFile.swift; sourceTree = "<group>"; };
 		23BA357528B84680004756CA /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		23BA357728B84FD4004756CA /* ForgotPasswodMasterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodMasterClass.swift; sourceTree = "<group>"; };
 		23BA96F428B349790081DB5E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 		23ECA95728CEA746001DFFF3 /* HomePageMainBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageMainBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		23EDCDF928B344BC00F0EA75 /* UserDefaultClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultClass.swift; sourceTree = "<group>"; };
 		23EDCDFB28B345AE00F0EA75 /* NetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHandler.swift; sourceTree = "<group>"; };
+		23EDE20B28FFF64500211734 /* couponListBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = couponListBase.swift; sourceTree = "<group>"; };
+		23EDE20D28FFFE8800211734 /* couponListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = couponListVC.swift; sourceTree = "<group>"; };
+		23EDE20F29000CD300211734 /* coupenListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coupenListTableViewCell.swift; sourceTree = "<group>"; };
+		23EDE2112900418B00211734 /* AddressBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBase.swift; sourceTree = "<group>"; };
 		23EE4B7D28E0AA8900D2F44D /* Cart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cart.xcdatamodel; sourceTree = "<group>"; };
 		23EE4B8028E0AACE00D2F44D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		23F71C7A28A4FEE800DCB4B7 /* bigbasket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigbasket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +324,8 @@
 			children = (
 				23C98FDF28D9A85F00529415 /* ProductListSubcategory.swift */,
 				235097C228D85BC3000DDF23 /* ProductListingBaseFile.swift */,
+				23AEC379290909460008E63C /* ProductByCategoryBaseFile.swift */,
+				238073EB291A289400FA1B2F /* AddFavBaseFile.swift */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -367,6 +381,7 @@
 			children = (
 				237EEBE228E1B9BF00438DD6 /* CartItemsTableViewCell.swift */,
 				23E14BA128E354CD0018C87C /* BeforeCheckoutProductsCollectionViewCell.swift */,
+				23EDE20F29000CD300211734 /* coupenListTableViewCell.swift */,
 			);
 			path = CartPage;
 			sourceTree = "<group>";
@@ -401,6 +416,7 @@
 				23A595A528C5FB620002D5AF /* CartVC.swift */,
 				23E14B9D28E34ED20018C87C /* CartMasterClass.swift */,
 				23D6AD8A28E59A45001BB1CE /* checkoutVC.swift */,
+				23EDE20D28FFFE8800211734 /* couponListVC.swift */,
 			);
 			path = CartPaqge;
 			sourceTree = "<group>";
@@ -470,6 +486,8 @@
 			children = (
 				23E14B9A28E34C960018C87C /* AddCartBaseFile.swift */,
 				23E14B9F28E3534D0018C87C /* CartListBaseFile.swift */,
+				23EDE20B28FFF64500211734 /* couponListBase.swift */,
+				23EDE2112900418B00211734 /* AddressBase.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -759,6 +777,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23EDE20C28FFF64500211734 /* couponListBase.swift in Sources */,
 				23A72F8728C17B8E00414D56 /* LoginVerifyOtp.swift in Sources */,
 				23EDCDFC28B345AE00F0EA75 /* NetworkingHandler.swift in Sources */,
 				235097C328D85BC3000DDF23 /* ProductListingBaseFile.swift in Sources */,
@@ -799,6 +818,7 @@
 				23A5959728C5EE400002D5AF /* CategoryPageVc.swift in Sources */,
 				2381B0C128F578F90035C2E2 /* CustomDashedView.swift in Sources */,
 				236342CF28DC59CF00893B22 /* ProductDetailsCollectionViewCell.swift in Sources */,
+				23AEC37A290909460008E63C /* ProductByCategoryBaseFile.swift in Sources */,
 				235097BE28D8131C000DDF23 /* ProductListCollectionViewCell.swift in Sources */,
 				23196B8F28D38C8A007D10DC /* TreandingNowCollectionViewCell.swift in Sources */,
 				23AB8E2E28BC82E000FD0815 /* CustomeTabBarController.swift in Sources */,
@@ -813,14 +833,18 @@
 				2349714328DADB6500202F6A /* LoginByEmailViewController.swift in Sources */,
 				23ECA95228CE9B04001DFFF3 /* HomePageMasterClass.swift in Sources */,
 				23EDCDFA28B344BC00F0EA75 /* UserDefaultClass.swift in Sources */,
+				23EDE2122900418B00211734 /* AddressBase.swift in Sources */,
 				235097C028D843C1000DDF23 /* ProductListMasterClass.swift in Sources */,
 				23BA96F828B34D580081DB5E /* UserAccountMasterClass.swift in Sources */,
+				23EDE21029000CD300211734 /* coupenListTableViewCell.swift in Sources */,
 				235097B928D803E4000DDF23 /* ProductListViewController.swift in Sources */,
 				23F71C8028A4FEE800DCB4B7 /* SceneDelegate.swift in Sources */,
+				238073EC291A289400FA1B2F /* AddFavBaseFile.swift in Sources */,
 				2344170C28D459E70005ABE8 /* NewArrivalsCollectionViewCell.swift in Sources */,
 				236342D128DC80BF00893B22 /* SimilarItemsCollectionViewCell.swift in Sources */,
 				2352A2C428D0A7F800891F57 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				2328038128AB6D5700B6C35D /* Extension.swift in Sources */,
+				23EDE20E28FFFE8800211734 /* couponListVC.swift in Sources */,
 				235097B528D7EF7F000DDF23 /* CenterOfferBannerCollectionViewCell.swift in Sources */,
 				23D8DA1928BA208D00764F99 /* LabelString.swift in Sources */,
 				2349714528DADC4500202F6A /* LoginByEmailMasterClass.swift in Sources */,
@@ -1027,27 +1051,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = XLPSEH973Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = bigbasket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigbasket.dev.bigbasket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbasket.dev.bigbasketDEV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1057,27 +1085,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = XLPSEH973Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = bigbasket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigbasket.dev.bigbasket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigbasket.dev.bigbasketDEV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

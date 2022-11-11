@@ -84,7 +84,7 @@ class LoginByEmailViewController: UIViewController {
     }
     func goToLoginSMS (){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! LoginPageViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginPageViewController") as! LoginPageViewController
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     func goToSingUp (){

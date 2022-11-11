@@ -29,11 +29,11 @@ struct LoginByEmailMasterClass{
     
     func loginEmailEndPoint(completion:@escaping (Data)->Void){
         
-        
+        let randomInt = Int.random(in: 0..<10)
 let param = ["input":EmailId,
              "password":Password, 
-             "deviceToken":"12345",
-             "deviceId":"123458800",
+             "deviceToken":"\(randomInt)",
+             "deviceId":"\(randomInt)",
              "deviceName":"iPhone",
              "os":"iOS"]
         NetworkingHandler.Post(url:loginEmailUrl, param: param) { mdata in

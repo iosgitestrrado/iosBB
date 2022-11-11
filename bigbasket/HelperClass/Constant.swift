@@ -11,10 +11,21 @@ enum BaseUrl: String
 
 }
 
-let Currency = "SAR"
+struct CoupanData{
+    var couponCode :String?
+    var couponId: Int?
+    var couponTitle:String?
+}
+
+
+
+var Currency = "SAR"
+var mcouponCode  = ""
+var mcouponId = 0
+var mcouponTitle = ""
+var mcouponOffer = ""
 
 let UrlType = "\(BaseUrl.Qa.rawValue)";
-
 let loginUrl = "\(UrlType)login/send/otp"
 let loginEmailUrl = "\(UrlType)login"
 let signUpUrl = "\(UrlType)register"
@@ -23,18 +34,23 @@ let resendOtpUrl = "\(UrlType)register/verify/otp"
 let ResendOtpUrl = "\(UrlType)login/send/otp"
 let ForgotPasswordUrl = "\(UrlType)/login/forgot/password"
 let LoginVerifyOtpUrl = "\(UrlType)login/verify/otp"
-
 let HomePageUrl = "\(UrlType)home"
 let ProductListUrl = "\(UrlType)product-list-filter"
-let ProductListSubcategory = "\(UrlType)subcategory"
+let ProductListSubcategoryUrl = "\(UrlType)subcategory"
 let productDetailUrl = "\(UrlType)product-detail"
 let addCartUrl = "\(UrlType)add-cart"
 let cartUrl = "\(UrlType)cart"
 let changeQtyUrl = "\(UrlType)cart/change-qty"
-
-
+let deleteCartUrl = "\(UrlType)delete-cart"
+let deleteAllCartUrl = "\(UrlType)delete-cart-all"
+let PlaceOrderUrl = "\(UrlType)order/placeorder-ios"
+let addCartProductListUrl = "\(UrlType)cart-qty-by-product-id"
+let couponListUrl = "\(UrlType)coupon-list"
+let applyCouponUrl = "\(UrlType)cart/apply-coupon"
 let CategorySubCatURL = "\(UrlType)cat-subcat"
 let ProfileURL = "\(UrlType)profile"
+let addressUrl = "\(UrlType)address"
+let addFavUrl = "\(UrlType)add/wishlist"
 
 
 enum fontName:String

@@ -10,28 +10,37 @@ struct HomePage_Base : Codable {
 }
 // MARK: - Data
 struct HomePageData : Codable {
-   // let user_data : User_data?
+    let homepage_categories : Homepage_categories?
     let main_banner : [Main_banner]?
     let top_offer_banner : [Top_offer_banner]?
     let center_offer_banner : [Center_offer_banner]?
     let bottom_offer_banner : [Bottom_offer_banner]?
     let category : [Category]?
-    let grocery_subcat : [Grocery_subcat]?
-    //   // let all_category_icon : All_category_icon?
-   let beverage_products : [Beverage_products]?
-   let fruit_and_vegs : [Fruit_and_vegs]?
+    let second_category : [SecondCategory]?
+    let category_products : [CategoryProducts]?
+    let first_category : [FirstCategory]?
     let featured_products : [Featured_products]?
-   // let cat_subcat : [Cat_subcat]?
-//    //    let shocking_sale : [String]?
-   let new_arrivals : [New_arrivals]?
-   let trending_products : [Trending_products]?
-   let explore_products : [Explore_products]?
-   let brands : [Brands]?
+    let new_arrivals : [New_arrivals]?
+    let trending_products : [Trending_products]?
+    let explore_products : [Explore_products]?
+    let brands : [Brands]?
+    let currency : String?
 //    //    let languages : [Languages]?
 //    //    let cart : String?
-//    //    let currency : String?
+   
+    //   // let all_category_icon : All_category_icon?
+    // let cat_subcat : [Cat_subcat]?
+ //    //    let shocking_sale : [String]?
+    // let user_data : User_data?
     
     
+    
+}
+
+struct Homepage_categories : Codable {
+    let first_category : String?
+    let second_category : String?
+    let category_products : String?
     
 }
 //MARK: - User Data
@@ -145,7 +154,7 @@ struct Trending_products : Codable {
     let category_id : Int?
    // let is_rating : Int?
    // let category_name : String?
-   // let subcategory_id : Int?
+    let subcategory_id : Int?
    // let subcategory_name : String?
    // let brand_id : Int?
    // let brand_name : String?
@@ -190,8 +199,9 @@ struct TrendingProductsImage : Codable {
     let thumbnail : String?
 }
 // MARK: - Fruit and Vegs
-struct Fruit_and_vegs : Codable {
+struct FirstCategory : Codable {
     let id : Int?
+    let category_id : Int?
     let subcategory_name : String?
     let subcategory_image : String?
 }
@@ -252,8 +262,9 @@ struct VariantsListImage : Codable {
     
 }
 //MARK: - Grocery
-struct Grocery_subcat : Codable {
+struct SecondCategory : Codable {
     let id : Int?
+    let category_id : Int?
     let subcategory_name : String?
     let subcategory_image : String?
 }
@@ -308,7 +319,7 @@ struct FeaturedProductsImage : Codable {
    
 }
 //MARK: - Beverage Products
-struct Beverage_products : Codable {
+struct CategoryProducts : Codable {
    let product_id : Int?
    let product_name : String?
 //    let category_id : Int?
@@ -349,7 +360,7 @@ struct BeverageProductsVariants_list : Codable {
     let discount_type : Bool?
     let offer : Bool?
     let actual_price : String?
-    let offer_price : Bool?
+    let offer_price : String?
 }
 
 //MARK: - Beverage Products Image
@@ -361,8 +372,8 @@ struct BeverageProductsImage : Codable {
 }
 
 struct Explore_products : Codable {
-    let product_id : Int?
-      let product_name : String?
+     let product_id : Int?
+     let product_name : String?
    // let category_id : Int?
    // let is_rating : Int?
     //let category_name : String?
@@ -374,12 +385,12 @@ struct Explore_products : Codable {
     //let offer_name : Bool?
     //let discount_type : Bool?
     //let offer : Bool?
-    let actual_price : String?
+   // let actual_price : String?
     //let offer_price : Bool?
     //let short_description : String?
    // let rating : Int?
    // let total_reviews : Int?
-        let image : [ExploreProductsImage]?
+    let image : [ExploreProductsImage]?
    // let variants_list : [ExploreProductsVariants_list]?
     
 }

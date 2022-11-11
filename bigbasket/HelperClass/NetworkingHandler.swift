@@ -19,14 +19,11 @@ class NetworkingHandler:NSObject {
     static func Post(url:String,param:[String:Any],success: @escaping (Data)->Void,failure :@escaping (Error)->Void){
         print("##URL \(url)")
         print("###param \(param)")
-      
-        let headers : HTTPHeaders = [
-            "Authorization": "",
-            "Accept": "application/json",
-            "Content-Type":"application/json"
-        ]
+    
         
-        AF.request(url, method: .post, parameters: param,encoding: JSONEncoding.default,headers: nil).responseJSON { response in             
+        AF.request(url, method: .post, parameters: param,encoding: JSONEncoding.default,headers: nil).responseJSON { response in
+            print("###\(JSON(response.data))")
+          
             do{
                
                 guard let responseData = response.data else {
@@ -35,15 +32,6 @@ class NetworkingHandler:NSObject {
                 }
                 switch  response.result{
                 case .success :
-                    let mdata = JSON(response.data)
-                    if 401 == mdata["httpcode"] {
-//                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//                        let mainTabController = storyboard.instantiateViewController(withIdentifier: "LoginPageViewController") as!  LoginPageViewController
-//                        let nav = UINavigationController(rootViewController: mainTabController)
-//                        nav.present(nav, animated: true, completion: nil)
-                    }
-                    print("#Json\(mdata["httpcode"])")
-                    
                     success(responseData)
                     break
                 case .failure(let error):

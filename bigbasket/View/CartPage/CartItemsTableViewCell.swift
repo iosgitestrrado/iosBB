@@ -9,6 +9,7 @@ import UIKit
 
 class CartItemsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var categoryname: UILabel!
     @IBOutlet weak var ProductImage: UIImageView!
     @IBOutlet weak var amount: UILabel!
