@@ -5,10 +5,16 @@ import UIKit
 
 enum BaseUrl: String
 {
+<<<<<<< HEAD
     case Dev = "https://dev-bigbasket.estrradoweb.com/api/customer/"
     case Live = "live"
     case Qa = "https://qa-bigbasket.estrradoweb.com/api/customer/"
 
+=======
+    case deve = "https://dev-bigbasket.estrradoweb.com/api/customer/"
+    case live = "live"
+    case testing = "test"
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
 }
 
 struct CoupanData{
@@ -34,6 +40,7 @@ let resendOtpUrl = "\(UrlType)register/verify/otp"
 let ResendOtpUrl = "\(UrlType)login/send/otp"
 let ForgotPasswordUrl = "\(UrlType)/login/forgot/password"
 let LoginVerifyOtpUrl = "\(UrlType)login/verify/otp"
+<<<<<<< HEAD
 let HomePageUrl = "\(UrlType)home"
 let ProductListUrl = "\(UrlType)product-list-filter"
 let ProductListSubcategoryUrl = "\(UrlType)subcategory"
@@ -52,6 +59,12 @@ let ProfileURL = "\(UrlType)profile"
 let addressUrl = "\(UrlType)address"
 let addFavUrl = "\(UrlType)add/wishlist"
 
+=======
+
+
+let CategorySubCatURL = "\(UrlType)cat-subcat"
+let ProfileURL = "\(UrlType)profile"
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
 
 enum fontName:String
 {

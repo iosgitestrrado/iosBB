@@ -14,7 +14,10 @@ class NetworkingHandler:NSObject {
 
    // let inputString = "{\"User\":[{\"userlogin\":[\"\(self.emailAddress.text!)\", \"\(self.password.text!)\"]}]}"
     static let shared = NetworkingHandler()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     
     static func Post(url:String,param:[String:Any],success: @escaping (Data)->Void,failure :@escaping (Error)->Void) {
         print("##URL \(url)")
@@ -42,7 +45,11 @@ class NetworkingHandler:NSObject {
             }
         }
     }
+<<<<<<< HEAD
     /*
+=======
+    
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     static func postAPI<T: Decodable>(with url: String, parameter: [String: Any], decode: @escaping (Decodable) -> T?, completion: @escaping (APIResult<T, APIError>) -> Void) {
         NetworkingHandler.fetchData(url, param: parameter, decodingType: T.self) { json, error in
             DispatchQueue.main.async {
@@ -99,7 +106,11 @@ class NetworkingHandler:NSObject {
             }
         })
     }
+<<<<<<< HEAD
     */
+=======
+    
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     
 }
 

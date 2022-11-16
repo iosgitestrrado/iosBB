@@ -29,7 +29,11 @@ class ProfileVC: UIViewController {
 // MARK: - API Section
 extension ProfileVC {
     private func getProfileData() {
+<<<<<<< HEAD
        /* if !Reachability.isConnectedToNetwork() {
+=======
+        if !Reachability.isConnectedToNetwork() {
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
             Toast.show()
             return
         }
@@ -55,7 +59,11 @@ extension ProfileVC {
             cellList.append(ProfileListCellData(title: "Logout".localizableString(), image: "logout"))
             self.tableView.reloadData()
             Core.HideProgress(self)
+<<<<<<< HEAD
         }*/
+=======
+        }
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     }
 }
 
@@ -66,14 +74,22 @@ extension ProfileVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+<<<<<<< HEAD
        /* let cellData = cellList[indexPath.row]
+=======
+        let cellData = cellList[indexPath.row]
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
         if let profileData = cellData as? ProfileModel, let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell {
             cell.configure(profileData)
             return cell
         } else if let listData = cellData as? ProfileListCellData, let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row == cellList.count - 1 ? ListTableViewCell.logoutIdentifier : ListTableViewCell.identifier, for: indexPath) as? ListTableViewCell {
             cell.configure(listData)
             return cell
+<<<<<<< HEAD
         }*/
+=======
+        }
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
         return UITableViewCell()
     }
 }

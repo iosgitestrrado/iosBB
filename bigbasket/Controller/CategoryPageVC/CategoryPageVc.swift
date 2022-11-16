@@ -13,8 +13,13 @@ class CategoryPageVc: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var categoryTitle: UILabel!
 
+<<<<<<< HEAD
 //    private var categoryList = [CategoryModel]()
 //    private var subCategoryList = [SubCategoryModel]()
+=======
+    private var categoryList = [CategoryModel]()
+    private var subCategoryList = [SubCategoryModel]()
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     private var selectedCatgoryIndex = -1
     
     private var gridWidth: CGFloat = 124.0
@@ -39,8 +44,13 @@ class CategoryPageVc: UIViewController {
     }
 
     private func selectCategory(_ row: Int) {
+<<<<<<< HEAD
 //        subCategoryList = categoryList[row].Subcategories
 //        categoryTitle.text = categoryList[row].Name
+=======
+        subCategoryList = categoryList[row].Subcategories
+        categoryTitle.text = categoryList[row].Name
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
         selectedCatgoryIndex = row
         self.tableView.reloadData()
         self.collectionView.reloadData()
@@ -50,7 +60,11 @@ class CategoryPageVc: UIViewController {
 // MARK: - API Section
 extension CategoryPageVc {
     private func getCategories() {
+<<<<<<< HEAD
         /*if !Reachability.isConnectedToNetwork() {
+=======
+        if !Reachability.isConnectedToNetwork() {
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
             Toast.show()
             return
         }
@@ -61,13 +75,18 @@ extension CategoryPageVc {
                 selectCategory(0)
             }
             Core.HideProgress(self)
+<<<<<<< HEAD
         }*/
+=======
+        }
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     }
 }
 
 // MARK: - UITableViewDataSource -
 extension CategoryPageVc: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+<<<<<<< HEAD
         return 0// categoryList.count
     }
     
@@ -76,6 +95,16 @@ extension CategoryPageVc: UITableViewDataSource {
             cell.configure(categoryList[indexPath.row], isSelectedRow: selectedCatgoryIndex == indexPath.row)
             return cell
         }*/
+=======
+        return categoryList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as? CategoryTableViewCell {
+            cell.configure(categoryList[indexPath.row], isSelectedRow: selectedCatgoryIndex == indexPath.row)
+            return cell
+        }
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
         return UITableViewCell()
     }
 }
@@ -83,11 +112,19 @@ extension CategoryPageVc: UITableViewDataSource {
 // MARK: - UITableViewDelegate -
 extension CategoryPageVc: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+<<<<<<< HEAD
        /* subCategoryList = categoryList[indexPath.row].Subcategories
         categoryTitle.text = categoryList[indexPath.row].Name
         selectedCatgoryIndex = indexPath.row
         self.tableView.reloadData()
         self.collectionView.reloadData()*/
+=======
+        subCategoryList = categoryList[indexPath.row].Subcategories
+        categoryTitle.text = categoryList[indexPath.row].Name
+        selectedCatgoryIndex = indexPath.row
+        self.tableView.reloadData()
+        self.collectionView.reloadData()
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
     }
 }
 
@@ -95,6 +132,7 @@ extension CategoryPageVc: UITableViewDelegate {
 // MARK: - UICollectionViewDataSource -
 extension CategoryPageVc: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+<<<<<<< HEAD
         return 0// subCategoryList.count
     }
     
@@ -103,6 +141,16 @@ extension CategoryPageVc: UICollectionViewDataSource {
             cell.configure(subCategoryList[indexPath.row])
             return cell
         }*/
+=======
+        return subCategoryList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell {
+            cell.configure(subCategoryList[indexPath.row])
+            return cell
+        }
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
         return UICollectionViewCell()
     }
 }

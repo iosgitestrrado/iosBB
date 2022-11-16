@@ -8,7 +8,7 @@ target 'bigbasket' do
   # Pods for bigbasket
 
   pod 'CountryPickerView'
-  pod 'NVActivityIndicatorView', '~> 4.7'
+  pod 'NVActivityIndicatorView', '~>5.1.1'
   pod 'Toast-Swift', '~> 4.0.0'
   pod 'CropViewController'
   pod 'QRCodeReader.swift', '~> 10.0'
@@ -17,7 +17,11 @@ target 'bigbasket' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.1'
   pod 'IQKeyboardManagerSwift'
+<<<<<<< HEAD
   pod 'SDWebImage'
   pod 'FloatRatingView', '~> 4'
 
+=======
+  pod 'SDWebImage', '~>5.12.3'
+>>>>>>> 7e3e599e54aa66bbbbf872399de94e7a7256b4b2
 end
