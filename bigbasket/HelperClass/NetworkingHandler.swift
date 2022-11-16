@@ -16,7 +16,7 @@ class NetworkingHandler:NSObject {
     static let shared = NetworkingHandler()
 
     
-    static func Post(url:String,param:[String:Any],success: @escaping (Data)->Void,failure :@escaping (Error)->Void){
+    static func Post(url:String,param:[String:Any],success: @escaping (Data)->Void,failure :@escaping (Error)->Void) {
         print("##URL \(url)")
         print("###param \(param)")
     

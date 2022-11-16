@@ -25,16 +25,12 @@ struct HomePageData : Codable {
     let explore_products : [Explore_products]?
     let brands : [Brands]?
     let currency : String?
-//    //    let languages : [Languages]?
-//    //    let cart : String?
-   
-    //   // let all_category_icon : All_category_icon?
-    // let cat_subcat : [Cat_subcat]?
- //    //    let shocking_sale : [String]?
-    // let user_data : User_data?
-    
-    
-    
+//    let languages : [Languages]?
+//    let cart : String?
+//    let all_category_icon : All_category_icon?
+//    let cat_subcat : [Cat_subcat]?
+//    let shocking_sale : [String]?
+//    let user_data : User_data?
 }
 
 struct Homepage_categories : Codable {

@@ -10,4 +10,4 @@ struct  AddCartBaseFile : Codable {
     let httpcode : Int?
     let status : String?
     let message : String?
-    }
+}
